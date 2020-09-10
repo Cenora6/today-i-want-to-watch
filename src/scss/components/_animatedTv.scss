@@ -1,0 +1,297 @@
+.tv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 4rem;
+  bottom: 4rem;
+  width: 25rem;
+  height: 20rem;
+  background: #9E4C15 ;
+  border-radius: 3rem;
+  border: .2rem solid black;
+  transform-origin: bottom center;
+  animation: bounce-body alternate infinite 1s .5s ease-in-out;
+  z-index: 10;
+
+  &__background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: #B7A792;
+    width: 70%;
+    height: 80%;
+    border-bottom-left-radius: 3rem;
+    border-top-left-radius: 3rem;
+
+    &__screen {
+      width: 90%;
+      height: 90%;
+      position: absolute;
+      background: #7F7FD5;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      border-radius: 5rem;
+      border: .2rem solid black;
+
+      &__face {
+        display: flex;
+        z-index: 2;
+        position: relative;
+        width: 50%;
+        height: 50%;
+        top: 10%;
+        left: 10%;
+
+        &__eyes {
+          display: flex;
+
+          .eyebrow-left, .eyebrow-right {
+            position: absolute;
+            width: 2rem;
+            height: .5rem;
+            background: #9E4C15;
+            border: .1rem solid black;
+            top: -1.5rem;
+            border-top-right-radius: 50%;
+            border-top-left-radius: 50%;
+          }
+
+          .eyebrow-left {
+            left: 0;
+          }
+
+          .eyebrow-right {
+            left: 3rem;
+
+          }
+
+          &__left, &__right {
+            margin: .2rem;
+            position: relative;
+            background: white;
+            width: 2rem;
+            height: 3rem;
+            top: 0;
+            border-radius: 50%;
+            border: .1rem solid #848484;
+            animation: blink forwards infinite 10s ease-in-out;
+
+          }
+
+          .ball {
+            width: .8rem;
+            height: .8rem;
+            background: black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border: .2rem solid #7373c2;
+          }
+        }
+
+        &__mouth {
+          position: absolute;
+          width: 5rem;
+          height: 2rem;
+          bottom: 0;
+          background-color: #343232;
+          border: .2rem solid black;
+          overflow: hidden;
+          border-radius: 30% 30% 50% 50%;
+          animation: mouth-move infinite 10s, bounce-body alternate infinite 1s .5s ease-in-out;
+
+          &:before, &:after{
+            content: "";
+            position: absolute;
+            width: 5rem;
+            border-radius: 50%;
+          }
+
+          &:before {
+            height: .5rem;
+            top: -.2rem;
+            background-color: white;
+
+          }
+
+          &:after {
+            bottom: -.2rem;
+            height: 1rem;
+            background-color: #f15962;
+          }
+        }
+      }
+    }
+  }
+
+  &__buttons {
+    width: 20%;
+    height: 80%;
+    background: #E1C9A9;
+    border-bottom-right-radius: 3rem;
+    border-top-right-radius: 3rem;
+
+    &__round {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 60%;
+
+      &__1, &__2 {
+        position: relative;
+        width: 3rem;
+        height: 3rem;
+        background: #4F4D4B;
+        border-radius: 50%;
+        margin: .5rem;
+        border: .2rem solid black;
+      }
+
+      &__1:after {
+        content: "";
+        position: absolute;
+        width: .2rem;
+        height: 90%;
+        border: .2rem solid black;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        top: 50%;
+        left: 50%;
+        animation: rotate-first forwards infinite 20s ease-in-out;
+      }
+
+      &__2:after {
+        content: "";
+        position: absolute;
+        width: .2rem;
+        height: 90%;
+        border: .2rem solid black;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        animation: rotate-second forwards infinite 20s ease-in-out;
+      }
+    }
+
+    &__lines {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      height: 40%;
+
+      .line {
+        width: 80%;
+        height: .5rem;
+        background: #010000;
+        border-radius: 2rem;
+        margin: .1rem;
+      }
+    }
+  }
+
+  &:after, &:before {
+    content: "";
+    position: absolute;
+    background: #4F4D4B;
+    height: 1rem;
+    width: 3rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    border: .2rem solid black;
+    bottom: -1.4rem;
+  }
+
+  &:after {
+    left: 3rem;
+  }
+
+  &:before {
+    right: 3rem;
+  }
+
+  &__top {
+    position: absolute;
+    width: 6rem;
+    height: 3rem;
+    background: #4F4D4B;
+    border-top-left-radius: 4rem;
+    border-top-right-radius: 4rem;
+    top: -3.4rem;
+    right: 5rem;
+    border: .2rem solid black;
+
+    &__left, &__right {
+      position: absolute;
+      width: 15rem;
+      height: .3rem;
+      background: #D1D1D0;
+      z-index: -1;
+      border: .2rem solid black;
+    }
+
+    &__left {
+      transform:  rotate(20deg);
+      top: -1rem;
+      right: 2rem;
+
+    }
+
+    &__right {
+      transform:  rotate(-50deg);
+      top: -4rem;
+      left: 0;
+    }
+  }
+}
+
+@keyframes blink {
+  0%, 2%, 60%, 62%, 100% {
+    transform: scaleX(1) scaleY(1);
+  }
+  1%, 61% {
+    transform: scaleX(1.3) scaleY(0.1);
+  }
+}
+
+@keyframes rotate-first {
+  0%, 2%, 60%, 62%, 100% {
+    transform: translate(-50%, -50%)  rotate(-45deg);
+  }
+  1%, 61% {
+    transform: translate(-50%, -50%)  rotate(20deg);
+  }
+}
+
+@keyframes rotate-second {
+  0%, 2%, 60%, 62%, 100% {
+    transform: translate(-50%, -50%);
+  }
+  1%, 61% {
+    transform: translate(-50%, -50%)  rotate(-20deg);
+  }
+}
+
+@keyframes bounce-body {
+  to {
+    transform: scaleX(1.03) scaleY(0.97);
+  }
+}
+
+@keyframes mouth-move {
+  0%, 15%, 40% {
+    left: 0;
+    width: 5rem;
+    border-radius: 30% 30% 50% 50%;
+  }
+  25%, 35% {
+    left: 1rem;
+    width: 2rem;
+    border-radius: 50%;
+  }
+}

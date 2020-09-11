@@ -1,0 +1,121 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  h1 {
+    color: white;
+    font-family: 'Homemade Apple', cursive;
+    font-size: 3rem;
+    z-index: 10;
+  }
+
+  &__searchbox {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 70%;
+    border-radius: 2rem;
+    border: .3rem solid white;
+    box-shadow: 10px 10px 12px -1px rgba(0,0,0,0.57);
+    background: #4b6cb7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #182848, #4b6cb7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #182848, #4b6cb7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: 'Kite One', sans-serif;
+
+    &__type, &__genres, &__keywords, &__submit {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    &__type {
+      height: 10%;
+    }
+
+    &__genres {
+      height: 60%;
+    }
+
+    &__keywords {
+      height: 20%;
+
+      &__input {
+        position: relative;
+
+        input {
+          width: 50%;
+          padding: .5rem;
+        }
+
+        &__results {
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: column;
+          position: absolute;
+          bottom: -4rem;
+          background: white;
+          width: 20%;
+          padding: .5rem;
+
+
+          span {
+            font-size: .8rem;
+            position: relative;
+            padding: .2rem 0;
+            cursor: pointer;
+
+            &:hover {
+              color: #4b6cb7;
+            }
+          }
+        }
+      }
+    }
+
+    &__submit {
+      height: 20%;
+    }
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      width: 80%;
+
+      .single-box {
+        display: flex;
+        margin: .5rem;
+        flex-wrap: wrap;
+        width: 10rem;
+        height: 2rem;
+
+        label {
+          color: white;
+          margin-left: 1rem;
+          font-size: .8rem;
+          letter-spacing: .1rem;
+          cursor: pointer;
+
+        }
+      }
+    }
+
+
+    .title-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 20%;
+
+      h2 {
+        text-transform: uppercase;
+        color: white;
+        letter-spacing: .2rem;
+      }
+    }
+  }
+}

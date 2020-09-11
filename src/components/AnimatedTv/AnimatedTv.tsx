@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from 'react';
 
 export interface AnimatedTvProps {
-    width: any,
-    height: any
+    width: number,
+    height: number
 }
 
 function AnimatedTv(props: AnimatedTvProps) {
 
-    const xCoordinates = props.width*100 / window.innerWidth+"%";
-    const yCoordinates = props.height*100 / window.innerHeight+"%";
+    const xCoordinates = props.width * 100 / window.innerWidth+"%";
+    const yCoordinates = props.height * 100 / window.innerHeight+"%";
 
     const ballStyle = {
         left: xCoordinates,

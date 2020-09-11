@@ -31,6 +31,30 @@
       justify-content: center;
       align-items: center;
       margin-top: 3rem;
+
+
+      &__radio {
+        display: flex;
+        flex-wrap: wrap;
+        width: 80%;
+
+        .single-box {
+          display: flex;
+          margin: .5rem;
+          flex-wrap: wrap;
+          width: 10rem;
+          height: 2rem;
+
+          label {
+            color: white;
+            margin-left: 1rem;
+            font-size: .8rem;
+            letter-spacing: .1rem;
+            cursor: pointer;
+
+          }
+        }
+      }
     }
 
     &__type {
@@ -45,6 +69,7 @@
       height: 20%;
 
       &__input {
+        width: 80%;
         position: relative;
 
         input {
@@ -81,28 +106,6 @@
       height: 20%;
     }
 
-    form {
-      display: flex;
-      flex-wrap: wrap;
-      width: 80%;
-
-      .single-box {
-        display: flex;
-        margin: .5rem;
-        flex-wrap: wrap;
-        width: 10rem;
-        height: 2rem;
-
-        label {
-          color: white;
-          margin-left: 1rem;
-          font-size: .8rem;
-          letter-spacing: .1rem;
-          cursor: pointer;
-
-        }
-      }
-    }
 
 
     .title-box {
@@ -115,6 +118,25 @@
         text-transform: uppercase;
         color: white;
         letter-spacing: .2rem;
+      }
+    }
+
+    &__result {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      h2 {
+        color: white;
+        font-size: 2rem;
+        margin: 2rem;
+      }
+
+      img {
+        box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+        border: .2rem solid white;
       }
     }
   }

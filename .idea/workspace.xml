@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdc95569-316a-4d80-842b-ac4c1ac732ad" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/api/Themoviedb.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Home/Home.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scss/components/_home.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/animatedTv/AnimatedTv.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AnimatedTv/AnimatedTv.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scss/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scss/settings/_base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/settings/_base.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/Themoviedb.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Themoviedb.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/components/_home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/components/_home.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +31,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="ToolWindowDuplicates.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -71,7 +66,7 @@
       <updated>1599582202053</updated>
       <workItem from="1599582203104" duration="23967000" />
       <workItem from="1599757536728" duration="40000" />
-      <workItem from="1599817033717" duration="6254000" />
+      <workItem from="1599817033717" duration="19461000" />
     </task>
     <servers />
   </component>
@@ -83,9 +78,17 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="726" y="301" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1599582390405" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1599837217189">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1599837217189" />
     <state x="657" y="253" key="run.anything.popup" timestamp="1599737925926">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1599737925926" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1599826344992">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1599826344992" />
   </component>
 </project>

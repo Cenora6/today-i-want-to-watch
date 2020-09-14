@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdc95569-316a-4d80-842b-ac4c1ac732ad" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/Themoviedb.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Themoviedb.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AnimatedTv/AnimatedTv.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AnimatedTv/AnimatedTv.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Home.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scss/components/_home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/components/_home.scss" afterDir="false" />
     </list>
@@ -66,7 +67,8 @@
       <updated>1599582202053</updated>
       <workItem from="1599582203104" duration="23967000" />
       <workItem from="1599757536728" duration="40000" />
-      <workItem from="1599817033717" duration="19461000" />
+      <workItem from="1599817033717" duration="23098000" />
+      <workItem from="1600075046041" duration="10176000" />
     </task>
     <servers />
   </component>

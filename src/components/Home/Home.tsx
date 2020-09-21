@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import {getAllGenres, getAllKeywords, searchForRandom} from "../../api/Themoviedb";
 import tmdb from './../../assets/tmdb_icon.png';
+import imdb from './../../assets/imdb_icon.png';
+import homepage from './../../assets/home_icon.png';
 
 interface searchData {
     type: string,
@@ -18,9 +20,9 @@ function Home() {
     const [keyword, setKeyword] = useState<string>('');
     const [keywordId, setKeywordId] = useState<string>('');
     const [searchingPage, setSearchingPage] = useState<number>(1);
-    const [searchClicked, setSearchClicked] = useState<boolean>(false);
     const [activePage, setActivePage] = useState<any>(1);
     const [random, setRandom] = useState<any>();
+    const [randomCast, setRandomCast] = useState<any>();
     const [randomGenre, setRandomGenre] = useState<any>();
     const [imageStatus, setImageStatus] = useState<string>('loading');
 
@@ -45,7 +47,6 @@ function Home() {
     }
 
     const searchForMovie = (e: React.FormEvent) => {
-        setSearchClicked(true);
         e.preventDefault();
         const searchElement = {
             "type": type,
@@ -53,10 +54,7 @@ function Home() {
             "keyword": keywordId,
             "page": searchingPage,
         };
-        console.log(searchElement)
-
-        searchForRandom(setRandom, searchElement, setActivePage, allGenres, setRandomGenre);
-        imageStatus && setSearchClicked(false);
+        searchForRandom(setRandom, searchElement, setActivePage, allGenres, setRandomGenre, setRandomCast);
     }
 
     const backToSearch = () => {
@@ -70,11 +68,10 @@ function Home() {
     }
 
     const handleImageLoaded = () => {
-        setImageStatus('loaded')
+        setImageStatus('loaded');
     }
 
     const anotherSearch = (e: React.MouseEvent) => {
-        setSearchClicked(true);
         setImageStatus("loading");
         e.preventDefault();
         setSearchingPage(searchingPage + 1)
@@ -86,8 +83,7 @@ function Home() {
             "page": searchingPage
         };
 
-        searchForRandom(setRandom, searchElement, setActivePage, allGenres, setRandomGenre);
-        imageStatus && setSearchClicked(false);
+        searchForRandom(setRandom, searchElement, setActivePage, allGenres, setRandomGenre, setRandomCast);
     }
 
     const changeGenreAnimation = () => {
@@ -177,8 +173,23 @@ function Home() {
                     {random ?
                         <>
                             <div className={`home__searchbox__result__details ${imageStatus === "loading" ? 'hide' : 'show'}`}>
-                                <img alt={random} src={`//image.tmdb.org/t/p/w220_and_h330_face/${random.poster_path}`}
-                                     onLoad={handleImageLoaded}/>
+                                <div className='home__searchbox__result__details__photo'>
+                                    <img alt={random} src={`//image.tmdb.org/t/p/w600_and_h900_face${random.poster_path}`}
+                                         onLoad={handleImageLoaded}/>
+                                    <div className='home__searchbox__result__details__photo__icons'>
+                                        <a target='_blank' rel="noreferrer noopener" href={`https://www.themoviedb.org/${type}/${random.id}`}>
+                                            <img src={tmdb} alt='tmdb'/>
+                                        </a>
+                                        {random.imdb_id &&
+                                        <a target='_blank' rel="noreferrer noopener" href={`https://www.imdb.com/title/${random.imdb_id}`}>
+                                            <img src={imdb} alt='imdb'/>
+                                        </a>}
+                                        {random.homepage &&
+                                        <a target='_blank' rel="noreferrer noopener" href={random.homepage}>
+                                            <img src={homepage} alt='homepage'/>
+                                        </a>}
+                                    </div>
+                                </div>
                                 <div className={`home__searchbox__result__details__info ${imageStatus === "loading" ? 'hide' : 'show'}`}>
                                     <h2>
                                         {random.original_language === 'eng' ?
@@ -187,15 +198,52 @@ function Home() {
                                             (random.title ? random.title : random.name)
                                         }
                                     </h2>
-                                    <p>Release date: {type === 'movie' ? random.release_date : random.first_air_date.slice(0, 4)}</p>
-                                    <p>Score: {random.vote_average} ({random.vote_count} votes)</p>
-                                    <p>Genres: {randomGenre && randomGenre.join(', ')}</p>
+                                    <div className='home__searchbox__result__details__info__basic'>
+                                        <p><span className='decorative'>Release date:</span>
+                                            {type === 'movie' ?
+                                                random.release_date
+                                                :
+                                                random.first_air_date.slice(0, 4) + ' - ' + random.last_air_date.slice(0, 4)}
+                                        </p>
+                                        <p><span className='decorative'>Score:</span> {random.vote_average} ({random.vote_count} votes)</p>
+                                        <p><span className='decorative'>Genres:</span> {randomGenre && randomGenre.join(', ')}</p>
+                                        {type === 'movie' ?
+                                            <p><span className='decorative'>Country:</span>
+                                                {random.production_countries && random.production_countries.length > 0 ?
+                                                    random.production_countries.map((country: any) => country.name + ', ')
+                                                    : '-'}
+                                            </p>
+                                            :
 
-                                    <p>{random.overview}</p>
-                                    <div className='home__searchbox__result__details__info__tmdb'>
-                                        <a target='_blank' rel="noreferrer noopener" href={`https://www.themoviedb.org/${type}/${random.id}`}>
-                                            <img src={tmdb} alt='tmdb'/>
-                                        </a>
+                                            <p><span className='decorative'>Number of seasons:</span>
+                                                {random.number_of_seasons} ({random.status})
+                                            </p>
+                                        }
+                                    </div>
+
+                                    <div className='home__searchbox__result__details__info__description'>
+                                        <p>{random.overview}</p>
+                                    </div>
+
+                                    <div className='home__searchbox__result__details__info__cast'>
+                                        {randomCast &&
+                                        randomCast.cast.slice(0, 5).map( (cast: any, index: number) => {
+                                            return (
+                                                <div className={'home__searchbox__result__details__info__cast__single'} key={index}>
+                                                    {cast.profile_path ?
+                                                        <img
+                                                            src={`https://image.tmdb.org/t/p/w138_and_h175_face${cast.profile_path}`}
+                                                            alt={'actor'}/>
+                                                        :
+                                                        <div className='no-image'></div>
+                                                    }
+                                                    <div className={'home__searchbox__result__details__info__cast__single__text'}>
+                                                        <p><span className='bold'>{cast.name}</span> <br/> as {cast.character}</p>
+                                                    </div>
+                                                </div>
+                                            )
+                                        })
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -206,6 +254,7 @@ function Home() {
                             </div>
                         </>
                         :
+
                         <>
                             <h2>No results... :(</h2>
                             <div className='home__searchbox__submit__button'>

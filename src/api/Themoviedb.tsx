@@ -30,7 +30,7 @@ export function getAllKeywords(setAllKeywords: any, search: string) {
         });
 }
 
-export function searchForRandom(setRandom: any, search: any, setActivePage: any, allGenres: any, setRandomGenre: any) {
+export function searchForRandom(setRandom: any, search: any, setActivePage: any, allGenres: any, setRandomGenre: any, setRandomCast: any) {
             axios
                 .get<any>
                 (search.keyword ?
@@ -42,8 +42,11 @@ export function searchForRandom(setRandom: any, search: any, setActivePage: any,
                     const genresNames: Array<string>= [];
                     response.data.results.forEach((data: any) => data.poster_path && results.push(data))
                     let randomNumber = Math.floor(Math.random() * (results.length));
-                    setRandom(response.data.results[randomNumber])
+
+                    getDetails(setRandom, search.type, response.data.results[randomNumber].id);
+                    getCast(setRandomCast, search.type, response.data.results[randomNumber].id);
                     setActivePage(2);
+
                     const genresId = response.data.results[randomNumber].genre_ids;
 
                     // change the numbers of genre id from result to names
@@ -56,10 +59,35 @@ export function searchForRandom(setRandom: any, search: any, setActivePage: any,
                         }
                         setRandomGenre(genresNames);
                     })
-
-                    console.log(response.data.results[randomNumber])
                 })
                 .catch(err => {
                     console.log(err);
                 });
+}
+
+export function getDetails(setRandom: any, type: string, id: string) {
+
+    axios
+        .get<any>
+        (`${url}3/${type}/${id}?api_key=${API_KEY}&language=en-US`)
+        .then(response => {
+            setRandom(response.data);
+            console.log("details", response.data)
+        })
+        .catch(err => {
+            console.log(err);
+        });
+}
+
+export function getCast(setRandomCast: any, type: string, id: string) {
+
+    axios
+        .get<any>
+        (`${url}3/${type}/${id}/credits?api_key=${API_KEY}&language=en-US`)
+        .then(response => {
+            setRandomCast(response.data);
+        })
+        .catch(err => {
+            console.log(err);
+        });
 }

@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdc95569-316a-4d80-842b-ac4c1ac732ad" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/api/functions.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Home/Result.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Home/Searchbox.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/Themoviedb.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Themoviedb.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scss/components/_home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/components/_home.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +18,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -32,7 +35,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="ToolWindowDuplicates.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Bin/TypeScript Udemy Projects/Google Maps Project" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -69,7 +72,7 @@
       <workItem from="1599817033717" duration="23098000" />
       <workItem from="1600075046041" duration="13751000" />
       <workItem from="1600187419030" duration="263000" />
-      <workItem from="1600680599373" duration="18212000" />
+      <workItem from="1600680599373" duration="22423000" />
     </task>
     <servers />
   </component>
@@ -81,10 +84,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="726" y="301" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1599582390405" />
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1599837217189">
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1600709651605">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1599837217189" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1600709651605" />
     <state x="657" y="253" key="run.anything.popup" timestamp="1600683858460">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

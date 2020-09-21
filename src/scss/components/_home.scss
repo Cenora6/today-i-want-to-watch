@@ -208,6 +208,15 @@
         justify-content: center;
         align-items: center;
         width: 100%;
+        transition: 1s;
+
+        &.show {
+          opacity: 1;
+        }
+
+        &.hide {
+          opacity: 0;
+        }
 
         img {
           width: auto;
@@ -222,6 +231,15 @@
           justify-content: center;
           width: 50%;
           margin: 0 2rem;
+          transition: .2s;
+
+          &.show {
+            opacity: 1;
+          }
+
+          &.hide {
+            opacity: 0;
+          }
 
           h2 {
             font-size: 2rem;
@@ -229,8 +247,16 @@
           }
 
           p {
-            margin: 1rem 0;
+            margin-bottom: 1rem;
             line-height: 1.5rem;
+          }
+
+          &__tmdb {
+            img {
+              border: none;
+              width: 2rem;
+              box-shadow: none;
+            }
           }
         }
       }

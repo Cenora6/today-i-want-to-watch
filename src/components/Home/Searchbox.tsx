@@ -1,18 +1,20 @@
 import React from 'react';
+import {SingleKeyword} from "../../model/keywords.model";
+import {SingleGenre} from "../../model/genres.model";
 
 interface SearchboxProps {
-    searchForMovie: any,
+    searchForMovie: () => void,
     changeType: any,
     type: string,
-    changeGenreAnimation: any,
-    changeGenre: any,
-    allGenres: any,
+    changeGenreAnimation: () => void,
+    changeGenre: () => void,
+    allGenres: SingleGenre[] | undefined,
     genre: string,
-    chooseGenre: any,
+    chooseGenre: () => void,
     keyword: string,
-    changeKeywordInput: any,
-    allKeywords: any,
-    chooseKeyword: any
+    changeKeywordInput: () => void,
+    allKeywords: SingleKeyword[] | undefined,
+    chooseKeyword: () => void
 }
 
 export function Searchbox (props: SearchboxProps) {
@@ -43,8 +45,8 @@ return (
             <div className='home__searchbox__genres__title title-box'>
                 <h2>Genre</h2>
             </div>
-            <div className={`home__searchbox__genres__radio ${changeGenre ? 'show' : 'hide'} ${type === '' && 'hide'}`}>
-                {allGenres && allGenres.map( (single:any, index: number) => {
+            <div className={`home__searchbox__genres__radio ${changeGenre && type ? 'show' : 'hide'}`}>
+                {allGenres && allGenres.map( (single: SingleGenre, index: number) => {
                     return (
                         <div key={index} className='home__searchbox__genres__radio__single single-box'>
                             <input type="radio" id={single.name} name="genre" value={single.id}
@@ -65,7 +67,7 @@ return (
                 </label>
                 {allKeywords &&
                 <div className={`home__searchbox__keywords__input__results ${keyword ? "show" : "hide"}` }>
-                    {keyword !== '' && allKeywords.map((keyword: any) => {
+                    {keyword !== '' && allKeywords.map((keyword: SingleKeyword) => {
                         return (
                             <span key={keyword.id} id={keyword.id} onClick={chooseKeyword}>{keyword.name}</span>
                         )

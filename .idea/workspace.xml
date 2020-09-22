@@ -2,12 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdc95569-316a-4d80-842b-ac4c1ac732ad" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/api/functions.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Home/Result.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Home/Searchbox.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/sad_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/cast.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/genres.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/keywords.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/search.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/Themoviedb.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Themoviedb.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/functions.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/details.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/Result.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Result.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/Searchbox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Searchbox.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/components/_home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/components/_home.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +24,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript JSX File" />
+        <option value="tsconfig.json" />
         <option value="TypeScript File" />
       </list>
     </option>
@@ -43,6 +50,11 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/model" />
+    </key>
   </component>
   <component name="RunManager" selected="npm.npm start">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
@@ -73,6 +85,7 @@
       <workItem from="1600075046041" duration="13751000" />
       <workItem from="1600187419030" duration="263000" />
       <workItem from="1600680599373" duration="22423000" />
+      <workItem from="1600763105352" duration="10154000" />
     </task>
     <servers />
   </component>
@@ -88,10 +101,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1600709651605" />
-    <state x="657" y="253" key="run.anything.popup" timestamp="1600683858460">
+    <state x="657" y="253" key="run.anything.popup" timestamp="1600766001492">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1600683858460" />
+    <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1600766001492" />
     <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1599826344992">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

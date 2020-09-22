@@ -2,29 +2,34 @@ import React from 'react';
 import tmdb from "../../assets/tmdb_icon.png";
 import imdb from "../../assets/imdb_icon.png";
 import homepage from "../../assets/home_icon.png";
+import sad from "../../assets/sad_icon.png";
+import {MovieOrShowDetails} from "../../model/details.model";
+import {MovieOrShowCast, SingleCast} from "../../model/cast.model";
 
 interface ResultProps {
-    random: any,
-    backToSearch: any,
+    random: MovieOrShowDetails | null,
+    backToSearch: () => void,
     imageStatus: string,
-    handleImageLoaded: any,
+    handleImageLoaded: () => void,
     type: string,
-    randomGenre: any,
-    randomCast: any,
-    anotherSearch: any
+    randomGenre?: string[],
+    randomCast?: MovieOrShowCast,
+    anotherSearch: () => void,
+    resultExists: boolean
 }
 
 export function Result(props: ResultProps) {
 
-    const { random, imageStatus, backToSearch, handleImageLoaded, type, randomGenre, randomCast, anotherSearch } = props;
+    const { random, imageStatus, backToSearch, handleImageLoaded, type, randomGenre, randomCast, anotherSearch, resultExists} = props;
 
     return (
         <div className='home__searchbox__result'>
-            {random ?
+            {resultExists ?
+                random &&
                 <>
                     <div className={`home__searchbox__result__details ${imageStatus === "loading" ? 'hide' : 'show'}`}>
                         <div className='home__searchbox__result__details__photo'>
-                            <img alt={random} src={`//image.tmdb.org/t/p/w600_and_h900_face${random.poster_path}`}
+                            <img alt={random.poster_path} src={`//image.tmdb.org/t/p/w300_and_h450_bestv2${random.poster_path}`}
                                  onLoad={handleImageLoaded}/>
                             <div className='home__searchbox__result__details__photo__icons'>
                                 <a target='_blank' rel="noreferrer noopener" href={`https://www.themoviedb.org/${type}/${random.id}`}>
@@ -53,7 +58,7 @@ export function Result(props: ResultProps) {
                                     {type === 'movie' ?
                                         random.release_date
                                         :
-                                        random.first_air_date.slice(0, 4) + ' - ' + random.last_air_date.slice(0, 4)}
+                                        random.first_air_date!.slice(0, 4) + ' - ' + random.last_air_date!.slice(0, 4)}
                                 </p>
                                 <p><span className='decorative'>Score:</span> {random.vote_average} ({random.vote_count} votes)</p>
                                 <p><span className='decorative'>Genres:</span> {randomGenre && randomGenre.join(', ')}</p>
@@ -77,7 +82,7 @@ export function Result(props: ResultProps) {
 
                             <div className='home__searchbox__result__details__info__cast'>
                                 {randomCast &&
-                                randomCast.cast.slice(0, 5).map( (cast: any, index: number) => {
+                                randomCast!.cast.slice(0, 5).map( (cast: SingleCast, index: number) => {
                                     return (
                                         <div className={'home__searchbox__result__details__info__cast__single'} key={index}>
                                             {cast.profile_path ?
@@ -88,7 +93,7 @@ export function Result(props: ResultProps) {
                                                 <div className='no-image'></div>
                                             }
                                             <div className={'home__searchbox__result__details__info__cast__single__text'}>
-                                                <p><span className='bold'>{cast.name}</span> <br/> as {cast.character}</p>
+                                                <p><span className='bold'>{cast.name}</span> <br/> {cast.character && "as " + cast.character}</p>
                                             </div>
                                         </div>
                                     )
@@ -104,9 +109,11 @@ export function Result(props: ResultProps) {
                     </div>
                 </>
                 :
-
                 <>
-                    <h2>No results... :(</h2>
+                    <div className="home__searchbox__result__details-error">
+                        <h2>No results...</h2>
+                        <img src={sad} alt='sad'/>
+                    </div>
                     <div className='home__searchbox__submit__button'>
                         <button type='button' onClick={backToSearch}>Try again?</button>
                     </div>

@@ -1,32 +1,35 @@
 import React, {useState} from 'react';
 import {getAllGenres, getAllKeywords, searchForRandom} from "../../api/Themoviedb";
-import tmdb from './../../assets/tmdb_icon.png';
-import imdb from './../../assets/imdb_icon.png';
-import homepage from './../../assets/home_icon.png';
 import {Result} from "./Result";
 import {Searchbox} from "./Searchbox";
-
-interface searchData {
-    type: string,
-    genre: string,
-    keyword?: string
-}
+import {SingleKeyword} from "../../model/keywords.model";
+import {SingleGenre} from "../../model/genres.model";
+import {MovieOrShowDetails} from "../../model/details.model";
+import {MovieOrShowCast} from "../../model/cast.model";
 
 function Home() {
 
-    const [allGenres, setAllGenres] = useState<any>();
-    const [allKeywords, setAllKeywords] = useState<any>();
-    const [type, setType] = useState<any>('');
-    const [genre, setGenre] = useState<any>('');
+    const [allGenres, setAllGenres] = useState<SingleGenre[]>([]);
+    const [allKeywords, setAllKeywords] = useState<SingleKeyword[]>();
+    const [type, setType] = useState<string>('');
+    const [genre, setGenre] = useState<string>('');
     const [changeGenre, setChangeGenre] = useState<boolean>(false);
     const [keyword, setKeyword] = useState<string>('');
     const [keywordId, setKeywordId] = useState<string>('');
     const [searchingPage, setSearchingPage] = useState<number>(1);
-    const [activePage, setActivePage] = useState<any>(1);
-    const [random, setRandom] = useState<any>();
-    const [randomCast, setRandomCast] = useState<any>();
-    const [randomGenre, setRandomGenre] = useState<any>();
+    const [activePage, setActivePage] = useState<number>(1);
+    const [random, setRandom] = useState<MovieOrShowDetails | null>(null);
+    const [randomCast, setRandomCast] = useState<MovieOrShowCast>();
+    const [randomGenre, setRandomGenre] = useState<string[]>();
     const [imageStatus, setImageStatus] = useState<string>('loading');
+    const [resultExists, setResultExists] = useState<boolean>(false);
+
+    const searchElement = {
+        "type": type,
+        "genre": genre,
+        "keyword": keywordId,
+        "page": searchingPage
+    };
 
     const changeType = (e: React.ChangeEvent<HTMLInputElement>) => {
         setType(e.target.value);
@@ -41,7 +44,7 @@ function Home() {
     const chooseKeyword = (e: any) => {
         setKeyword(e.target.innerHTML);
         setKeywordId(e.target.id);
-        setAllKeywords(null);
+        setAllKeywords([]);
     }
 
     const chooseGenre = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,23 +53,21 @@ function Home() {
 
     const searchForMovie = (e: React.FormEvent) => {
         e.preventDefault();
-        const searchElement = {
-            "type": type,
-            "genre": genre,
-            "keyword": keywordId,
-            "page": searchingPage,
-        };
-        searchForRandom(setRandom, searchElement, setActivePage, allGenres, setRandomGenre, setRandomCast);
+        setImageStatus("loading");
+        searchForRandom(setRandom, searchElement, setActivePage, allGenres, setRandomGenre, setRandomCast, setResultExists);
     }
 
     const backToSearch = () => {
         setActivePage(1);
         setGenre('');
         setType('');
+        setAllGenres([]);
         setKeyword('');
         setKeywordId('');
-        setRandom('');
+        setRandom(null);
         setSearchingPage(1);
+        setChangeGenre(false);
+        setResultExists(false);
     }
 
     const handleImageLoaded = () => {
@@ -78,18 +79,11 @@ function Home() {
         e.preventDefault();
         setSearchingPage(searchingPage + 1)
 
-        const searchElement = {
-            "type": type,
-            "genre": genre,
-            "keyword": keywordId,
-            "page": searchingPage
-        };
-
-        searchForRandom(setRandom, searchElement, setActivePage, allGenres, setRandomGenre, setRandomCast);
+        searchForRandom(setRandom, searchElement, setActivePage, allGenres, setRandomGenre, setRandomCast, setResultExists);
     }
 
     const changeGenreAnimation = () => {
-        if (type === '') {
+        if (!type) {
             setTimeout( () => {
                 setChangeGenre(true);
             }, 500)
@@ -100,7 +94,6 @@ function Home() {
             }, 500)
         }
     }
-
     return (
         <div className="home">
             <h1>Today I Want To Watch...</h1>
@@ -113,7 +106,7 @@ function Home() {
             <div className='home__searchbox'>
                 <Result random={random} backToSearch={backToSearch} imageStatus={imageStatus}
                         handleImageLoaded={handleImageLoaded} type={type} randomGenre={randomGenre}
-                        randomCast={randomCast} anotherSearch={anotherSearch}/>
+                        randomCast={randomCast} anotherSearch={anotherSearch} resultExists={resultExists}/>
             </div>
             }
         </div>

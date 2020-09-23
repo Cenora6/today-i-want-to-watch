@@ -21,7 +21,7 @@ function Home() {
     const [random, setRandom] = useState<MovieOrShowDetails | null>(null);
     const [randomCast, setRandomCast] = useState<MovieOrShowCast>();
     const [randomGenre, setRandomGenre] = useState<string[]>();
-    const [imageStatus, setImageStatus] = useState<string>('loading');
+    const [imageStatus, setImageStatus] = useState<"loading" | "loaded">("loading");
     const [loading, setLoading] = useState<boolean>(false);
     const [totalResultPages, setTotalResultPages] = useState<number>();
     const [totalResults, setTotalResult] = useState<number>(0);
@@ -77,8 +77,8 @@ function Home() {
         setTotalResultPages(0);
     }
 
-    const handleImageLoaded = () => {
-        setImageStatus('loaded')
+    const handleImageLoaded = (e: any) => {
+        e.target.src && setImageStatus('loaded')
     }
 
     const anotherSearch = (e: React.MouseEvent) => {
@@ -94,8 +94,6 @@ function Home() {
             :
             newSearchingPage = Math.floor(Math.random() * totalResultPages!) + 1;
 
-
-        console.log("current page", newSearchingPage)
         setSearchingPage(newSearchingPage);
         setTimeout( () => {
             searchForRandom(setRandom, searchElement, setActivePage, allGenres, setRandomGenre, setRandomCast, setLoading,
@@ -107,12 +105,12 @@ function Home() {
         if (!type) {
             setTimeout( () => {
                 setChangeGenre(true);
-            }, 500)
+            }, 300)
         } else {
             setChangeGenre(false)
             setTimeout( () => {
                 setChangeGenre(true)
-            }, 500)
+            }, 300)
         }
     }
     return (

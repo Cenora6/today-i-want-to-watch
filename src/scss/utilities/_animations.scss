@@ -7,7 +7,7 @@
   }
 }
 
-@include keyframes (rotate-first) {
+@include keyframes(rotate-first) {
   0%, 2%, 60%, 62%, 100% {
     transform: translate(-50%, -50%)  rotate(-45deg);
   }
@@ -16,7 +16,7 @@
   }
 }
 
-@include keyframes (rotate-second) {
+@include keyframes(rotate-second) {
   0%, 2%, 60%, 62%, 100% {
     transform: translate(-50%, -50%);
   }
@@ -25,7 +25,7 @@
   }
 }
 
-@include keyframes (bounce-body) {
+@include keyframes(bounce-body) {
   to {
     transform: scaleX(1.03) scaleY(0.97);
   }
@@ -44,7 +44,7 @@
   }
 }
 
-@include keyframes (load6) {
+@include keyframes(load6) {
   0% {
     box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
   }
@@ -67,7 +67,7 @@
   }
 }
 
-@include keyframes (round) {
+@include keyframes(round) {
   0% {
     @include rotate(0);
   }

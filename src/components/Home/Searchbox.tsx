@@ -45,7 +45,7 @@ export function Searchbox (props: SearchboxProps) {
                 <div className='home__searchbox__genres__title title-box'>
                     <h2>Genre</h2>
                 </div>
-                <div className={`home__searchbox__genres__radio ${changeGenre && type ? 'show' : 'hide'}`}>
+                <div className={`home__searchbox__genres__radio ${type && changeGenre ? 'show' : 'hide'}`}>
                     {allGenres && allGenres.map( (single: SingleGenre, index: number) => {
                         return (
                             <div key={index} className='home__searchbox__genres__radio__single single-box'>

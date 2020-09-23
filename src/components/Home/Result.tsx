@@ -9,10 +9,10 @@ import {MovieOrShowDetails} from "../../model/details.model";
 import {MovieOrShowCast, SingleCast} from "../../model/cast.model";
 
 interface ResultProps {
+    imageStatus: 'loading' | 'loaded',
+    handleImageLoaded: (event: SyntheticEvent<HTMLImageElement, Event>) => void,
     random: MovieOrShowDetails | null,
     backToSearch: (event: React.MouseEvent<HTMLButtonElement>) => void,
-    imageStatus: string,
-    handleImageLoaded: (event: SyntheticEvent<HTMLImageElement, Event>) => void,
     type: string,
     randomGenre?: string[],
     randomCast?: MovieOrShowCast,
@@ -28,17 +28,17 @@ export function Result(props: ResultProps) {
 
     return (
         <div className='home__searchbox__result'>
-
+            <div className={`home__searchbox__result__details`}>
             {loading ?
-                <div className={`home__searchbox__result__details ${random ? 'hide' : 'show'}`}>
+                <div className='home__searchbox__result__details__loading'>
                     <div className="loader">Loading...</div>
                 </div>
                 :
-
                 random ?
-                    <div className={`home__searchbox__result__details ${imageStatus === "loaded" ? 'show' : 'hide'}`}>
-                        <div className='home__searchbox__result__details__photo'>
-                            <img alt={random.poster_path}
+                    <>
+                        {console.log(imageStatus)}
+                        <div className={`home__searchbox__result__details__photo ${imageStatus === "loaded" ? 'show' : 'hide'}`}>
+                            <img alt='poster'
                                  src={random.poster_path ? `//image.tmdb.org/t/p/w300_and_h450_bestv2${random.poster_path}` : poster}
                                  onLoad={handleImageLoaded}/>
                             <div className='home__searchbox__result__details__photo__icons'>
@@ -55,7 +55,7 @@ export function Result(props: ResultProps) {
                                 </a>}
                             </div>
                         </div>
-                        <div className={`home__searchbox__result__details__info`}>
+                        <div className={`home__searchbox__result__details__info ${imageStatus === "loaded" ? 'show' : 'hide'}`}>
                             <h2>
                                 {random.original_language === 'eng' ?
                                     (random.original_title ? random.original_title : random.name)
@@ -68,7 +68,7 @@ export function Result(props: ResultProps) {
                                     {type === 'movie' ?
                                         random.release_date
                                         :
-                                        random.first_air_date!.slice(0, 4) + ' - ' + random.last_air_date!.slice(0, 4)}
+                                        random.first_air_date && random.first_air_date.slice(0, 4) + ' - ' + random.last_air_date!.slice(0, 4)}
                                 </p>
                                 <p><span className='decorative'>Score:</span> {random.vote_average} ({random.vote_count} votes)</p>
                                 <p><span className='decorative'>Genres:</span> {randomGenre && randomGenre.join(', ')}</p>
@@ -92,7 +92,7 @@ export function Result(props: ResultProps) {
 
                             <div className='home__searchbox__result__details__info__cast'>
                                 {randomCast &&
-                                randomCast!.cast.slice(0, 5).map( (cast: SingleCast, index: number) => {
+                                randomCast.cast.slice(0, 5).map( (cast: SingleCast, index: number) => {
                                     return (
                                         <div className={'home__searchbox__result__details__info__cast__single'} key={index}>
                                             <img
@@ -107,16 +107,14 @@ export function Result(props: ResultProps) {
                                 }
                             </div>
                         </div>
-                    </div>
+                    </>
                     :
-                    <>
-                        <div className="home__searchbox__result__details-error">
+                        <div className="home__searchbox__result__details__error">
                             <h2>No results...</h2>
                             <img src={sad} alt='sad'/>
                         </div>
-                    </>
             }
-
+            </div>
 
             <div className='home__searchbox__submit__button'>
                 {totalResults > 1 && random  && <button type='button' onClick={anotherSearch}>Try again?</button>}

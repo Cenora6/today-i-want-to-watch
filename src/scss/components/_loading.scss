@@ -1,0 +1,13 @@
+.loader {
+  color: $main-color;
+  font-size: 90px;
+  text-indent: -9999em;
+  overflow: hidden;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  margin: 72px auto;
+  position: relative;
+  @include transform(translateZ(0));
+  @include animation(load6 1.7s infinite ease, round 1.7s infinite ease);
+}

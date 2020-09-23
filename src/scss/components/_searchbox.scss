@@ -1,0 +1,188 @@
+.home {
+  &__searchbox {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 80%;
+    border-radius: 2rem;
+    border: .3rem solid $main-color;
+    box-shadow: 10px 10px 12px -1px rgba(0,0,0,0.57);
+    background: $searchbox-background-color-1;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, $searchbox-background-color-2, $searchbox-background-color-1);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, $searchbox-background-color-2, $searchbox-background-color-1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: $main-font;
+
+    &__type, &__genres, &__keywords, &__submit {
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      margin: 2rem 0;
+
+      &__radio {
+        display: flex;
+        flex-wrap: wrap;
+        width: 80%;
+
+        .single-box {
+          display: flex;
+          margin: .5rem;
+          flex-wrap: wrap;
+          width: 12rem;
+          height: 2rem;
+
+          label {
+            color: $main-color;
+            margin-left: 1rem;
+            font-size: .8rem;
+            letter-spacing: .1rem;
+            cursor: pointer;
+
+          }
+        }
+      }
+    }
+
+    &__type {
+      height: 5%;
+    }
+
+    &__genres {
+      height: 70%;
+
+      &__radio {
+        height: auto;
+        overflow: hidden;
+        @include transition(max-height .25s ease-in-out);
+
+        &.show {
+          max-height: 100%;
+        }
+
+        &.hide {
+          max-height: 0;
+        }
+      }
+    }
+
+    &__keywords {
+      height: 20%;
+
+      &__input {
+        width: 80%;
+        position: relative;
+
+        input {
+          width: 50%;
+          padding: .5rem;
+        }
+
+        &__results {
+          display: flex;
+          flex-wrap: wrap;
+          position: absolute;
+          top: 3rem;
+          background: $main-color;
+          width: 50%;
+          height: 0;
+          overflow: hidden;
+          @include transition(height .5s ease-in-out);
+
+          &.show {
+            height: auto;
+            padding: .5rem;
+          }
+
+          &.hide {
+            height: 0;
+          }
+
+          span {
+            font-size: .8rem;
+            position: relative;
+            padding: .2rem 0;
+            cursor: pointer;
+            width: 25%;
+
+            &:hover {
+              color: $searchbox-background-color-1;
+            }
+          }
+        }
+      }
+    }
+
+    &__submit {
+      height: 5%;
+
+      &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 15%;
+
+        button {
+          cursor: pointer;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-weight: 700;
+          outline: none;
+          position: relative;
+          @include transition(all 0.3s);
+          padding: 1rem 6rem;
+          overflow: hidden;
+          background: transparent;
+          color: $main-color;
+          border: .2rem solid $main-color;
+          border-radius: 2rem;
+          margin: 0 1rem;
+
+          &:after {
+            content: '';
+            position: absolute;
+            @include transition(all 0.3s);
+            width: 30%;
+            height: 200%;
+            background: rgba(255,255,255,0.1);
+            z-index: 1;
+            right: 0;
+            top: 0;
+            transform-origin: 0 0;
+            @include rotate(-20);
+          }
+
+          &:hover:after {
+            width: 40%;
+          }
+
+          i {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            height: 100%;
+            top: 0;
+            line-height: 3;
+            font-size: 140%;
+            width: 60px;
+            right: 10px;
+            z-index: 2;
+          }
+        }
+      }
+    }
+
+    .title-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 20%;
+      margin: .5rem 0;
+
+      h2 {
+        text-transform: uppercase;
+        color: $main-color;
+        letter-spacing: .2rem;
+      }
+    }
+  }
+}

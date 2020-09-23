@@ -5,7 +5,9 @@ export interface SingleId {
 }
 
 export interface RandomMovieIdResponse {
-    results : SingleId[]
+    results : SingleId[],
+    total_pages: number,
+    total_results: number
 }
 
 export interface MovieOrShowDetails {

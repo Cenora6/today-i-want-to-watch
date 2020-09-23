@@ -3,7 +3,7 @@ import {AllKeywordsResponse} from "../model/keywords.model";
 import {AllGenresResponse, SingleGenre} from "../model/genres.model";
 import {MovieOrShowCast} from "../model/cast.model";
 import {SearchModel} from "../model/search.model";
-import {RandomMovieIdResponse, MovieOrShowDetails, SingleId} from "../model/details.model";
+import {RandomMovieIdResponse, MovieOrShowDetails} from "../model/details.model";
 const API_KEY = "7da3d91798b7102da10fe38896bae4fe";
 const url = "https://api.themoviedb.org/";
 
@@ -36,7 +36,8 @@ export function getAllKeywords(setAllKeywords: Function, search: string) {
 }
 
 export function searchForRandom(setRandom: Function, search: SearchModel, setActivePage: Function, allGenres: SingleGenre[],
-                                setRandomGenre: Function, setRandomCast: Function, setResultExists: Function) {
+                                setRandomGenre: Function, setRandomCast: Function, setLoading: Function,
+                                setTotalResultPages: Function, setTotalResult: Function) {
     axios
         .get<RandomMovieIdResponse>
         (search.keyword ?
@@ -45,33 +46,35 @@ export function searchForRandom(setRandom: Function, search: SearchModel, setAct
             `${url}3/discover/${search.type}?api_key=${API_KEY}&language=en-US&with_genres=${search.genre}&page=${search.page}`)
         .then(response => {
             const genresNames: Array<string>= [];
-            const results: Array<SingleId> = [];
-            console.log(response.data.results)
-            response.data && setResultExists(true);
+            setTotalResultPages(response.data.total_pages);
+            setTotalResult(response.data.total_results);
+
+            console.log("total pages", response.data.total_pages);
+            console.log("total results", response.data.total_results);
+
 
             if(response.data.results.length !== 0) {
-                response.data.results.forEach((data: SingleId) => data.poster_path && results.push(data));
-                let randomNumber = Math.floor(Math.random() * (results.length));
+                let randomNumber = Math.floor(Math.random() * (response.data.results.length));
 
-                getDetails(setRandom, search.type, response.data.results[randomNumber].id);
+                getDetails(setRandom, search.type, response.data.results[randomNumber].id, setLoading);
                 getCast(setRandomCast, search.type, response.data.results[randomNumber].id);
                 setActivePage(2);
 
                 // change the numbers of genre id from result to names
                 const genresId = response.data.results[randomNumber].genre_ids;
                 genresId.forEach( (genreId: string) => {
-                    for (let i = 0; i < allGenres!.length; i++) {
-                        const allGenreId = allGenres[i].id;
-                        if(allGenreId === (genreId)) {
-                            genresNames.push(allGenres[i].name);
+                    allGenres.forEach( (genre: SingleGenre) => {
+                        if(genre.id === (genreId)) {
+                            genresNames.push(genre.name);
                         }
-                    }
+                    })
                     setRandomGenre(genresNames);
                 })
 
             } else {
                 setRandom(null);
                 setActivePage(2);
+                setLoading(false);
             }
 
         })
@@ -80,13 +83,17 @@ export function searchForRandom(setRandom: Function, search: SearchModel, setAct
         });
 }
 
-export function getDetails(setRandom: Function, type: string, id: string) {
+export function getDetails(setRandom: Function, type: string, id: string, setLoading: Function) {
 
     axios
         .get<MovieOrShowDetails>
         (`${url}3/${type}/${id}?api_key=${API_KEY}&language=en-US`)
         .then(response => {
             setRandom(response.data);
+            setTimeout( () => {
+                setLoading(false)
+            }, 500)
+            console.log(response.data)
         })
         .catch(err => {
             console.log(err);

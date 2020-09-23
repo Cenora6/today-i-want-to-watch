@@ -22,7 +22,9 @@ function Home() {
     const [randomCast, setRandomCast] = useState<MovieOrShowCast>();
     const [randomGenre, setRandomGenre] = useState<string[]>();
     const [imageStatus, setImageStatus] = useState<string>('loading');
-    const [resultExists, setResultExists] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(false);
+    const [totalResultPages, setTotalResultPages] = useState<number>();
+    const [totalResults, setTotalResult] = useState<number>(0);
 
     const searchElement = {
         "type": type,
@@ -41,9 +43,10 @@ function Home() {
         e.target.value && getAllKeywords(setAllKeywords, e.target.value);
     }
 
-    const chooseKeyword = (e: any) => {
-        setKeyword(e.target.innerHTML);
-        setKeywordId(e.target.id);
+    const chooseKeyword = (e: React.MouseEvent<HTMLSpanElement>) => {
+        const target = e.target as HTMLSpanElement;
+        setKeyword(target.innerHTML);
+        setKeywordId(target.id);
         setAllKeywords([]);
     }
 
@@ -52,9 +55,11 @@ function Home() {
     }
 
     const searchForMovie = (e: React.FormEvent) => {
+        setLoading(true);
         e.preventDefault();
         setImageStatus("loading");
-        searchForRandom(setRandom, searchElement, setActivePage, allGenres, setRandomGenre, setRandomCast, setResultExists);
+        searchForRandom(setRandom, searchElement, setActivePage, allGenres, setRandomGenre, setRandomCast, setLoading,
+            setTotalResultPages, setTotalResult);
     }
 
     const backToSearch = () => {
@@ -67,19 +72,35 @@ function Home() {
         setRandom(null);
         setSearchingPage(1);
         setChangeGenre(false);
-        setResultExists(false);
+        setLoading(false);
+        setTotalResult(0);
+        setTotalResultPages(0);
     }
 
     const handleImageLoaded = () => {
-        setImageStatus('loaded');
+        setImageStatus('loaded')
     }
 
     const anotherSearch = (e: React.MouseEvent) => {
         setImageStatus("loading");
         e.preventDefault();
-        setSearchingPage(searchingPage + 1)
+        setTimeout( () => {
+            setLoading(true);
+        }, 300)
+        let newSearchingPage: number;
 
-        searchForRandom(setRandom, searchElement, setActivePage, allGenres, setRandomGenre, setRandomCast, setResultExists);
+        totalResultPages! > 1000 ?
+            newSearchingPage = Math.floor(Math.random() * 1000) + 1
+            :
+            newSearchingPage = Math.floor(Math.random() * totalResultPages!) + 1;
+
+
+        console.log("current page", newSearchingPage)
+        setSearchingPage(newSearchingPage);
+        setTimeout( () => {
+            searchForRandom(setRandom, searchElement, setActivePage, allGenres, setRandomGenre, setRandomCast, setLoading,
+                setTotalResultPages, setTotalResult);
+        }, 500)
     }
 
     const changeGenreAnimation = () => {
@@ -106,7 +127,8 @@ function Home() {
             <div className='home__searchbox'>
                 <Result random={random} backToSearch={backToSearch} imageStatus={imageStatus}
                         handleImageLoaded={handleImageLoaded} type={type} randomGenre={randomGenre}
-                        randomCast={randomCast} anotherSearch={anotherSearch} resultExists={resultExists}/>
+                        randomCast={randomCast} anotherSearch={anotherSearch} loading={loading}
+                        totalResults={totalResults}/>
             </div>
             }
         </div>

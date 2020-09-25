@@ -52,7 +52,7 @@
       &__radio {
         height: auto;
         overflow: hidden;
-        @include transition(max-height .25s ease-in-out);
+        @include transition(max-height .3s ease-in-out);
 
         &.show {
           max-height: 100%;
@@ -182,6 +182,49 @@
         text-transform: uppercase;
         color: $main-color;
         letter-spacing: .2rem;
+      }
+    }
+
+    &__error {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      padding: .5rem 1rem;
+      width: 20%;
+      height: 5%;
+      right: 1rem;
+      top: 1rem;
+      z-index: 10;
+      border-radius: .5rem;
+      background: $error-color;
+      color: $main-color;
+      letter-spacing: .1rem;
+      line-height: 1rem;
+      text-align: center;
+      opacity: 0;
+
+      p {
+        font-size: .7rem;
+        //width: 80%;
+        padding: .5rem;
+      }
+
+      button {
+        width: 20%;
+        background: transparent;
+        outline: none;
+        border: none;
+        color: $main-color;
+      }
+
+      &.show {
+        opacity: 0;
+        @include animation(fadeIn .6s ease-in forwards);
+      }
+
+      &.hide {
+        opacity: 1;
+        @include animation(fadeOut .6s ease-in forwards);
       }
     }
   }

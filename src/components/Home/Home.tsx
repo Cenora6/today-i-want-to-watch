@@ -25,6 +25,7 @@ function Home() {
     const [loading, setLoading] = useState<boolean>(false);
     const [totalResultPages, setTotalResultPages] = useState<number>();
     const [totalResults, setTotalResult] = useState<number>(0);
+    const [error, setError] = useState<boolean>(false);
 
     const searchElement = {
         "type": type,
@@ -55,11 +56,25 @@ function Home() {
     }
 
     const searchForMovie = (e: React.FormEvent) => {
-        setLoading(true);
         e.preventDefault();
-        setImageStatus("loading");
-        searchForRandom(setRandom, searchElement, setActivePage, allGenres, setRandomGenre, setRandomCast, setLoading,
-            setTotalResultPages, setTotalResult);
+        setError(false)
+        if ((!type) || (!genre && !keyword)) {
+            setError(true);
+        } else if (genre || keyword) {
+            setError(false);
+            search();
+        }
+
+        setTimeout( () => {
+            setError(false);
+        }, 3000)
+
+        function search() {
+            setLoading(true);
+            setImageStatus("loading");
+            searchForRandom(setRandom, searchElement, setActivePage, allGenres, setRandomGenre, setRandomCast, setLoading,
+                setTotalResultPages, setTotalResult);
+        }
     }
 
     const backToSearch = () => {
@@ -77,8 +92,8 @@ function Home() {
         setTotalResultPages(0);
     }
 
-    const handleImageLoaded = (e: any) => {
-        e.target.src && setImageStatus('loaded')
+    const handleImageLoaded = () => {
+        setImageStatus('loaded')
     }
 
     const anotherSearch = (e: React.MouseEvent) => {
@@ -105,21 +120,23 @@ function Home() {
         if (!type) {
             setTimeout( () => {
                 setChangeGenre(true);
-            }, 300)
+            }, 400)
         } else {
             setChangeGenre(false)
             setTimeout( () => {
                 setChangeGenre(true)
-            }, 300)
+            }, 400)
         }
     }
+
     return (
         <div className="home">
             <h1>Today I Want To Watch...</h1>
             {activePage === 1 &&
             <Searchbox searchForMovie={searchForMovie} changeType={changeType} type={type} changeGenreAnimation={changeGenreAnimation}
                        changeGenre={changeGenre} allGenres={allGenres} genre={genre} chooseGenre={chooseGenre} keyword={keyword}
-                       changeKeywordInput={changeKeywordInput} allKeywords={allKeywords} chooseKeyword={chooseKeyword}/>
+                       changeKeywordInput={changeKeywordInput} allKeywords={allKeywords} chooseKeyword={chooseKeyword}
+                       error={error}/>
             }
             {activePage === 2 &&
             <div className='home__searchbox'>

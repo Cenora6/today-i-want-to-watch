@@ -19,11 +19,16 @@
 
         &__photo, &__info {
           @include transition(.6s);
+
           &.show {
+            //opacity: 0;
+            //@include animation(fadeIn .6s ease-in forwards);
             opacity: 1;
           }
 
           &.hide {
+            //opacity: 1;
+            //@include animation(fadeOut .6s ease-out forwards);
             opacity: 0;
           }
         }

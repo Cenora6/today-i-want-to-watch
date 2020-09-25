@@ -14,16 +14,21 @@ interface SearchboxProps {
     keyword: string,
     changeKeywordInput: (event: React.ChangeEvent<HTMLInputElement>) => void,
     allKeywords: SingleKeyword[] | undefined,
-    chooseKeyword: (event: React.MouseEvent<HTMLInputElement>) => void
+    chooseKeyword: (event: React.MouseEvent<HTMLInputElement>) => void,
+    error: boolean,
 }
 
 export function Searchbox (props: SearchboxProps) {
 
     const {searchForMovie, changeType, type, changeGenreAnimation, changeGenre, allGenres, genre, chooseGenre, keyword,
-        changeKeywordInput, allKeywords, chooseKeyword} = props;
+        changeKeywordInput, allKeywords, chooseKeyword, error} = props;
 
     return (
         <form className='home__searchbox' onSubmit={searchForMovie} autoComplete='off'>
+            <div className={`home__searchbox__error ${error ? 'show' : 'hide'}`}>
+                <p>You need to choose TYPE and GENRE or TYPE and KEYWORD</p>
+            </div>
+
             <div className='home__searchbox__type'>
                 <div className='home__searchbox__type__title title-box'>
                     <h2>Type</h2>

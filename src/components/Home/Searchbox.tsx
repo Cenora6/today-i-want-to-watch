@@ -8,27 +8,21 @@ interface SearchboxProps {
     type: string,
     changeGenreAnimation: (event: React.MouseEvent<HTMLInputElement>) => void,
     changeGenre: boolean,
-    allGenres: SingleGenre[] | undefined,
-    genre: string,
+    allGenres: SingleGenre[] | undefined
     chooseGenre: (event: React.ChangeEvent<HTMLInputElement>) => void,
     keyword: string,
     changeKeywordInput: (event: React.ChangeEvent<HTMLInputElement>) => void,
     allKeywords: SingleKeyword[] | undefined,
-    chooseKeyword: (event: React.MouseEvent<HTMLInputElement>) => void,
-    error: boolean,
+    chooseKeyword: (event: React.MouseEvent<HTMLInputElement>) => void
 }
 
 export function Searchbox (props: SearchboxProps) {
 
-    const {searchForMovie, changeType, type, changeGenreAnimation, changeGenre, allGenres, genre, chooseGenre, keyword,
-        changeKeywordInput, allKeywords, chooseKeyword, error} = props;
+    const {searchForMovie, changeType, type, changeGenreAnimation, changeGenre, allGenres, chooseGenre, keyword,
+        changeKeywordInput, allKeywords, chooseKeyword} = props;
 
     return (
         <form className='home__searchbox' onSubmit={searchForMovie} autoComplete='off'>
-            <div className={`home__searchbox__error ${error ? 'show' : 'hide'}`}>
-                <p>You need to choose TYPE and GENRE or TYPE and KEYWORD</p>
-            </div>
-
             <div className='home__searchbox__type'>
                 <div className='home__searchbox__type__title title-box'>
                     <h2>Type</h2>
@@ -36,12 +30,12 @@ export function Searchbox (props: SearchboxProps) {
                 <div className='home__searchbox__type__radio'>
                     <div className='home__searchbox__type__radio__single single-box'>
                         <input type="radio" id='tv' name="type" value="tv" onChange={changeType}
-                               checked={type === 'tv'} onClick={changeGenreAnimation}/>
+                               onClick={changeGenreAnimation}/>
                         <label htmlFor='tv'>tv show</label>
                     </div>
                     <div className='home__searchbox__types__radio__single single-box'>
                         <input type="radio" id='movie' name="type" value="movie" onChange={changeType}
-                               checked={type === 'movie'} onClick={changeGenreAnimation}/>
+                               onClick={changeGenreAnimation}/>
                         <label htmlFor='movie'>movie</label>
                     </div>
                 </div>
@@ -55,7 +49,7 @@ export function Searchbox (props: SearchboxProps) {
                         return (
                             <div key={index} className='home__searchbox__genres__radio__single single-box'>
                                 <input type="radio" id={single.name} name="genre" value={single.id}
-                                       checked={genre === single.id.toString()} onChange={chooseGenre}/>
+                                       onChange={chooseGenre}/>
                                 <label htmlFor={single.name}>{single.name.toLowerCase()}</label>
                             </div>
                         )

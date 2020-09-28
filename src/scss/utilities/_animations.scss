@@ -1,33 +1,33 @@
 @include keyframes(blink) {
   0%, 2%, 60%, 62%, 100% {
-    transform: scaleX(1) scaleY(1);
+    @include transform(scaleX(1) scaleY(1));
   }
   1%, 61% {
-    transform: scaleX(1.3) scaleY(0.1);
+    @include transform(scaleX(1.3) scaleY(0.1));
   }
 }
 
 @include keyframes(rotate-first) {
   0%, 2%, 60%, 62%, 100% {
-    transform: translate(-50%, -50%)  rotate(-45deg);
+    @include transform(translate(-50%, -50%)  rotate(-45deg));
   }
   1%, 61% {
-    transform: translate(-50%, -50%)  rotate(20deg);
+    @include transform(translate(-50%, -50%)  rotate(20deg));
   }
 }
 
 @include keyframes(rotate-second) {
   0%, 2%, 60%, 62%, 100% {
-    transform: translate(-50%, -50%);
+    @include translate(-50%, -50%);
   }
   1%, 61% {
-    transform: translate(-50%, -50%)  rotate(-20deg);
+    @include transform(translate(-50%, -50%)  rotate(-20deg));
   }
 }
 
 @include keyframes(bounce-body) {
   to {
-    transform: scaleX(1.03) scaleY(0.97);
+    @include transform(scaleX(1.03) scaleY(0.97));
   }
 }
 

@@ -1,0 +1,44 @@
+.home {
+
+  &__error {
+    @include flex-center-row;
+    position: absolute;
+    width: 70%;
+    left: 50%;
+    top: 1rem;
+    z-index: 10;
+    border-radius: .5rem;
+    background: $error-color;
+    color: $main-color;
+    line-height: 1rem;
+    text-align: center;
+    @include transition(.6s);
+    @include translate(-50%, 0);
+
+    p {
+      font-size: .6rem;
+      padding: .5rem;
+    }
+
+    &.show {
+      opacity: 1;
+    }
+
+    &.hide {
+      opacity: 0;
+    }
+
+    @include desktop {
+      padding: .5rem 1rem;
+      width: 20%;
+      left: auto;
+      right: 1rem;
+      letter-spacing: .1rem;
+      @include translate(0, 0);
+
+      p {
+        font-size: .8rem;
+      }
+    }
+  }
+}

@@ -2,8 +2,8 @@
   &__searchbox {
     display: flex;
     flex-direction: column;
-    width: 70%;
-    height: 80%;
+    width: 80%;
+    min-height: 35rem;
     border-radius: 2rem;
     border: .3rem solid $main-color;
     box-shadow: 10px 10px 12px -1px rgba(0,0,0,0.57);
@@ -11,32 +11,56 @@
     background: -webkit-linear-gradient(to bottom, $searchbox-background-color-2, $searchbox-background-color-1);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to bottom, $searchbox-background-color-2, $searchbox-background-color-1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     font-family: $main-font;
+    position: relative;
+
+    @include desktop {
+      width: 70%;
+      min-height: 45rem;
+    }
 
     &__type, &__genres, &__keywords, &__submit {
       display: flex;
       justify-content: center;
       align-items: baseline;
-      margin: 2rem 0;
+      margin: 1rem 0;
+
+      @include desktop {
+        margin: 2rem 0;
+      }
 
       &__radio {
         display: flex;
         flex-wrap: wrap;
-        width: 80%;
+        width: 70%;
 
         .single-box {
           display: flex;
-          margin: .5rem;
+          margin: .4rem;
           flex-wrap: wrap;
-          width: 12rem;
-          height: 2rem;
+          width: calc(50% - 0.8rem);
 
           label {
             color: $main-color;
-            margin-left: 1rem;
-            font-size: .8rem;
-            letter-spacing: .1rem;
+            margin: 0 .7rem;
+            font-size: .6rem;
             cursor: pointer;
+            word-break: break-all;
+          }
+        }
 
+        @include desktop {
+          width: 80%;
+
+          .single-box {
+            margin: .5rem;
+            width: calc(25% - 1rem);
+            height: 2rem;
+
+            label {
+              margin-left: 1rem;
+              font-size: .8rem;
+              letter-spacing: .1rem;
+            }
           }
         }
       }
@@ -72,20 +96,33 @@
         position: relative;
 
         input {
-          width: 50%;
+          width: 80%;
           padding: .5rem;
+          font-size: .6rem;
+
+          @include desktop {
+            width: 50%;
+            padding: .5rem;
+            font-size: 1rem;
+          }
         }
 
         &__results {
           display: flex;
           flex-wrap: wrap;
           position: absolute;
-          top: 3rem;
+          top: 2.5rem;
           background: $main-color;
-          width: 50%;
+          width: 80%;
           height: 0;
           overflow: hidden;
+          font-size: .6rem;
           @include transition(height .5s ease-in-out);
+
+          @include desktop {
+            width: 50%;
+            top: 3rem;
+          }
 
           &.show {
             height: auto;
@@ -97,14 +134,19 @@
           }
 
           span {
-            font-size: .8rem;
+            font-size: .6rem;
             position: relative;
             padding: .2rem 0;
             cursor: pointer;
             width: 25%;
+            z-index: 10;
 
             &:hover {
               color: $searchbox-background-color-1;
+            }
+
+            @include desktop {
+              font-size: .8rem;
             }
           }
         }
@@ -115,9 +157,7 @@
       height: 5%;
 
       &__button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flex-center-row;
         height: 15%;
 
         button {
@@ -128,13 +168,14 @@
           outline: none;
           position: relative;
           @include transition(all 0.3s);
-          padding: 1rem 6rem;
           overflow: hidden;
           background: transparent;
           color: $main-color;
           border: .2rem solid $main-color;
           border-radius: 2rem;
           margin: 0 1rem;
+          padding: .2rem 3rem;
+          font-size: .8rem;
 
           &:after {
             content: '';
@@ -155,76 +196,49 @@
           }
 
           i {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @include flex-center-row;
             position: absolute;
             height: 100%;
             top: 0;
-            line-height: 3;
-            font-size: 140%;
-            width: 60px;
-            right: 10px;
+            font-size: .8rem;
+            right: 1rem;
             z-index: 2;
           }
+
+          @include desktop {
+            font-size: 1rem;
+            padding: 1rem 6rem;
+
+
+            i {
+              font-size: 1.2rem;
+              right: 2rem;
+            }
+          }
+
         }
       }
     }
 
     .title-box {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 20%;
+      @include flex-center-row;
+      width: 30%;
       margin: .5rem 0;
 
       h2 {
         text-transform: uppercase;
         color: $main-color;
-        letter-spacing: .2rem;
-      }
-    }
-
-    &__error {
-      display: flex;
-      align-items: center;
-      position: absolute;
-      padding: .5rem 1rem;
-      width: 20%;
-      height: 5%;
-      right: 1rem;
-      top: 1rem;
-      z-index: 10;
-      border-radius: .5rem;
-      background: $error-color;
-      color: $main-color;
-      letter-spacing: .1rem;
-      line-height: 1rem;
-      text-align: center;
-      opacity: 0;
-
-      p {
         font-size: .7rem;
-        //width: 80%;
-        padding: .5rem;
+        letter-spacing: .1rem;
+
       }
 
-      button {
+      @include tablet-and-desktop {
         width: 20%;
-        background: transparent;
-        outline: none;
-        border: none;
-        color: $main-color;
-      }
-
-      &.show {
-        opacity: 0;
-        @include animation(fadeIn .6s ease-in forwards);
-      }
-
-      &.hide {
-        opacity: 1;
-        @include animation(fadeOut .6s ease-in forwards);
+        h2 {
+          letter-spacing: .2rem;
+          font-size: 1rem;
+        }
       }
     }
   }

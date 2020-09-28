@@ -29,91 +29,91 @@ export function Result(props: ResultProps) {
     return (
         <div className='home__searchbox__result'>
             <div className={`home__searchbox__result__details`}>
-            {loading ?
-                <div className='home__searchbox__result__details__loading'>
-                    <div className="loader">Loading...</div>
-                </div>
-                :
-                random ?
-                    <>
-                        {console.log(imageStatus)}
-                        <div className={`home__searchbox__result__details__photo ${imageStatus === "loaded" ? 'show' : 'hide'}`}>
-                            <img alt='poster'
-                                 src={random.poster_path ? `//image.tmdb.org/t/p/w300_and_h450_bestv2${random.poster_path}` : poster}
-                                 onLoad={handleImageLoaded}/>
-                            <div className='home__searchbox__result__details__photo__icons'>
-                                <a target='_blank' rel="noreferrer noopener" href={`https://www.themoviedb.org/${type}/${random.id}`}>
-                                    <img src={tmdb} alt='tmdb'/>
-                                </a>
-                                {random.imdb_id &&
-                                <a target='_blank' rel="noreferrer noopener" href={`https://www.imdb.com/title/${random.imdb_id}`}>
-                                    <img src={imdb} alt='imdb'/>
-                                </a>}
-                                {random.homepage &&
-                                <a target='_blank' rel="noreferrer noopener" href={random.homepage}>
-                                    <img src={homepage} alt='homepage'/>
-                                </a>}
-                            </div>
-                        </div>
-                        <div className={`home__searchbox__result__details__info ${imageStatus === "loaded" ? 'show' : 'hide'}`}>
-                            <h2>
-                                {random.original_language === 'eng' ?
-                                    (random.original_title ? random.original_title : random.name)
-                                    :
-                                    (random.title ? random.title : random.name)
-                                }
-                            </h2>
-                            <div className='home__searchbox__result__details__info__basic'>
-                                <p><span className='decorative'>Release date:</span>
-                                    {type === 'movie' ?
-                                        random.release_date
-                                        :
-                                        random.first_air_date && random.first_air_date.slice(0, 4) + ' - ' + random.last_air_date!.slice(0, 4)}
-                                </p>
-                                <p><span className='decorative'>Score:</span> {random.vote_average} ({random.vote_count} votes)</p>
-                                <p><span className='decorative'>Genres:</span> {randomGenre && randomGenre.join(', ')}</p>
-                                {type === 'movie' ?
-                                    <p><span className='decorative'>Country:</span>
-                                        {random.production_countries && random.production_countries.length > 0 ?
-                                            random.production_countries.map((country: any) => country.name + ', ')
-                                            : '-'}
-                                    </p>
-                                    :
-
-                                    <p><span className='decorative'>Number of seasons:</span>
-                                        {random.number_of_seasons} ({random.status})
-                                    </p>
-                                }
-                            </div>
-
-                            <div className='home__searchbox__result__details__info__description'>
-                                <p>{random.overview && random.overview.length > 1000 ? random.overview.substring(0, 1000) + "..." : random.overview}</p>
-                            </div>
-
-                            <div className='home__searchbox__result__details__info__cast'>
-                                {randomCast &&
-                                randomCast.cast.slice(0, 5).map( (cast: SingleCast, index: number) => {
-                                    return (
-                                        <div className={'home__searchbox__result__details__info__cast__single'} key={index}>
-                                            <img
-                                                src={cast.profile_path ? `https://image.tmdb.org/t/p/w138_and_h175_face${cast.profile_path}` : person}
-                                                alt={'actor'}/>
-                                            <div className={'home__searchbox__result__details__info__cast__single__text'}>
-                                                <p><span className='bold'>{cast.name}</span> <br/> {cast.character && "as " + cast.character}</p>
-                                            </div>
-                                        </div>
-                                    )
-                                })
-                                }
-                            </div>
-                        </div>
-                    </>
+                {loading ?
+                    <div className='home__searchbox__result__details__loading'>
+                        <div className="loader"></div>
+                    </div>
                     :
+                    random ?
+                        <>
+                            {console.log(imageStatus)}
+                            <div className={`home__searchbox__result__details__photo ${imageStatus === "loaded" ? 'show' : 'hide'}`}>
+                                <img alt='poster'
+                                     src={random.poster_path ? `//image.tmdb.org/t/p/w300_and_h450_bestv2${random.poster_path}` : poster}
+                                     onLoad={handleImageLoaded}/>
+                                <div className='home__searchbox__result__details__photo__icons'>
+                                    <a target='_blank' rel="noreferrer noopener" href={`https://www.themoviedb.org/${type}/${random.id}`}>
+                                        <img src={tmdb} alt='tmdb'/>
+                                    </a>
+                                    {random.imdb_id &&
+                                    <a target='_blank' rel="noreferrer noopener" href={`https://www.imdb.com/title/${random.imdb_id}`}>
+                                        <img src={imdb} alt='imdb'/>
+                                    </a>}
+                                    {random.homepage &&
+                                    <a target='_blank' rel="noreferrer noopener" href={random.homepage}>
+                                        <img src={homepage} alt='homepage'/>
+                                    </a>}
+                                </div>
+                            </div>
+                            <div className={`home__searchbox__result__details__info ${imageStatus === "loaded" ? 'show' : 'hide'}`}>
+                                <h2>
+                                    {random.original_language === 'eng' ?
+                                        (random.original_title ? random.original_title : random.name)
+                                        :
+                                        (random.title ? random.title : random.name)
+                                    }
+                                </h2>
+                                <div className='home__searchbox__result__details__info__basic'>
+                                    <p><span className='decorative'>Release date:</span>
+                                        {type === 'movie' ?
+                                            random.release_date
+                                            :
+                                            random.first_air_date && random.first_air_date.slice(0, 4) + ' - ' + random.last_air_date!.slice(0, 4)}
+                                    </p>
+                                    <p><span className='decorative'>Score:</span> {random.vote_average} ({random.vote_count} votes)</p>
+                                    <p><span className='decorative'>Genres:</span> {randomGenre && randomGenre.join(', ')}</p>
+                                    {type === 'movie' ?
+                                        <p><span className='decorative'>Country:</span>
+                                            {random.production_countries && random.production_countries.length > 0 ?
+                                                random.production_countries.map((country: any) => country.name + ', ')
+                                                : '-'}
+                                        </p>
+                                        :
+
+                                        <p><span className='decorative'>Number of seasons:</span>
+                                            {random.number_of_seasons} ({random.status})
+                                        </p>
+                                    }
+                                </div>
+
+                                <div className='home__searchbox__result__details__info__description'>
+                                    <p>{random.overview && random.overview.length > 1000 ? random.overview.substring(0, 1000) + "..." : random.overview}</p>
+                                </div>
+
+                                <div className='home__searchbox__result__details__info__cast'>
+                                    {randomCast &&
+                                    randomCast.cast.slice(0, 5).map( (cast: SingleCast, index: number) => {
+                                        return (
+                                            <div className={'home__searchbox__result__details__info__cast__single'} key={index}>
+                                                <img
+                                                    src={cast.profile_path ? `https://image.tmdb.org/t/p/w138_and_h175_face${cast.profile_path}` : person}
+                                                    alt={'actor'}/>
+                                                <div className={'home__searchbox__result__details__info__cast__single__text'}>
+                                                    <p><span className='bold'>{cast.name}</span> <br/> {cast.character && "as " + cast.character}</p>
+                                                </div>
+                                            </div>
+                                        )
+                                    })
+                                    }
+                                </div>
+                            </div>
+                        </>
+                        :
                         <div className="home__searchbox__result__details__error">
                             <h2>No results...</h2>
                             <img src={sad} alt='sad'/>
                         </div>
-            }
+                }
             </div>
 
             <div className='home__searchbox__submit__button'>

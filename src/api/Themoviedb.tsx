@@ -52,7 +52,6 @@ export function searchForRandom(setRandom: Function, search: SearchModel, setAct
             console.log("total pages", response.data.total_pages);
             console.log("total results", response.data.total_results);
 
-
             if(response.data.results.length !== 0) {
                 let randomNumber = Math.floor(Math.random() * (response.data.results.length));
 

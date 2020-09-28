@@ -130,13 +130,17 @@ function Home() {
     }
 
     return (
-        <div className="home">
+        <>
             <h1>Today I Want To Watch...</h1>
             {activePage === 1 &&
-            <Searchbox searchForMovie={searchForMovie} changeType={changeType} type={type} changeGenreAnimation={changeGenreAnimation}
-                       changeGenre={changeGenre} allGenres={allGenres} genre={genre} chooseGenre={chooseGenre} keyword={keyword}
-                       changeKeywordInput={changeKeywordInput} allKeywords={allKeywords} chooseKeyword={chooseKeyword}
-                       error={error}/>
+            <>
+                <div className={`home__error ${error ? 'show' : 'hide'}`}>
+                    <p>You need to choose TYPE and GENRE or TYPE and KEYWORD</p>
+                </div>
+                <Searchbox searchForMovie={searchForMovie} changeType={changeType} type={type} changeGenreAnimation={changeGenreAnimation}
+                           changeGenre={changeGenre} allGenres={allGenres} chooseGenre={chooseGenre} keyword={keyword}
+                           changeKeywordInput={changeKeywordInput} allKeywords={allKeywords} chooseKeyword={chooseKeyword}/>
+            </>
             }
             {activePage === 2 &&
             <div className='home__searchbox'>
@@ -146,7 +150,7 @@ function Home() {
                         totalResults={totalResults}/>
             </div>
             }
-        </div>
+        </>
     );
 }
 

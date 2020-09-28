@@ -143,12 +143,12 @@ function Home() {
             </>
             }
             {activePage === 2 &&
-            <div className='home__searchbox'>
+            // <div className='home__searchbox'>
                 <Result random={random} backToSearch={backToSearch} imageStatus={imageStatus}
                         handleImageLoaded={handleImageLoaded} type={type} randomGenre={randomGenre}
                         randomCast={randomCast} anotherSearch={anotherSearch} loading={loading}
                         totalResults={totalResults}/>
-            </div>
+            // </div>
             }
         </>
     );

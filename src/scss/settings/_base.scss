@@ -1,6 +1,7 @@
-body {
+body, #root {
   position: relative;
   min-height: 100vh;
+  //height: 100vh;
   width: 100vw;
   margin: 0;
   padding: 0;
@@ -13,19 +14,130 @@ body {
 }
 
 #root {
-  height: 100vh;
-
+  //height: 100vh;
 }
 
 .home {
   @include flex-center-column;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: relative;
-  min-height: 100%;
+  min-height: 100vh;
   background: $gradient-body-color-1;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to top, $gradient-body-color-2, $gradient-body-color-1);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to top, $gradient-body-color-2, $gradient-body-color-1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding: 2rem 0;
+
+  @include tablet-and-desktop {
+    padding: 0;
+  }
+
+  &__searchbox, &__result {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    border-radius: 2rem;
+    border: .3rem solid $main-color;
+    box-shadow: 10px 10px 12px -1px rgba(0,0,0,0.57);
+    background: $searchbox-background-color-1;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, $searchbox-background-color-2, $searchbox-background-color-1);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, $searchbox-background-color-2, $searchbox-background-color-1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: $main-font;
+    position: relative;
+    color: $main-color;
+
+    @include desktop {
+      width: 70%;
+      min-height: 45rem;
+      height: 45rem;
+    }
+
+    @include tablet {
+      min-height: 50rem;
+      height: 50rem;
+    }
+
+    &__submit {
+      display: flex;
+      justify-content: center;
+      height: 15%;
+
+      @include tablet {
+        height: 10%;
+      }
+
+      &__button {
+        @include flex-center-column;
+
+        @include tablet-and-desktop {
+          @include flex-center-row;
+        }
+
+        button {
+          cursor: pointer;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-weight: 700;
+          outline: none;
+          position: relative;
+          @include transition(all 0.3s);
+          overflow: hidden;
+          background: transparent;
+          color: $main-color;
+          border: .2rem solid $main-color;
+          border-radius: 2rem;
+          margin: .5rem 1rem;
+          padding: .2rem 3rem;
+          font-size: .8rem;
+          width: 10rem;
+          height: 3rem;
+
+          @include desktop {
+            width: auto;
+            margin: 0 1rem;
+            height: auto;
+          }
+
+          &:after {
+            content: '';
+            position: absolute;
+            @include transition(all 0.3s);
+            width: 30%;
+            height: 200%;
+            background: rgba(255,255,255,0.1);
+            z-index: 1;
+            right: 0;
+            top: 0;
+            transform-origin: 0 0;
+            @include rotate(-20);
+          }
+
+          &:hover:after {
+            width: 40%;
+          }
+
+          i {
+            @include flex-center-row;
+            position: absolute;
+            height: 100%;
+            top: 0;
+            font-size: .8rem;
+            right: 1rem;
+            z-index: 2;
+          }
+
+          @include desktop {
+            font-size: 1rem;
+            padding: 1rem 6rem;
 
 
+            i {
+              font-size: 1.2rem;
+              right: 2rem;
+            }
+          }
+        }
+      }
+    }
+  }
 }

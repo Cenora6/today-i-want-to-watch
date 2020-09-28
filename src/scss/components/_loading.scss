@@ -1,10 +1,28 @@
-.loader {
-  color: $main-color;
-  font-size: 6rem;
-  width: 1em;
-  height: 1em;
-  border-radius: 50%;
-  position: relative;
-  @include transform(translateZ(0));
-  @include animation(load6 1.7s infinite ease, round 1.7s infinite ease);
+.home {
+
+  &__result {
+
+    &__details {
+
+      &__loading {
+        @include flex-center-column;
+        min-height: 45rem;
+
+        @include desktop {
+          min-height: 100%;
+        }
+
+        .loader {
+          color: $main-color;
+          font-size: 6rem;
+          width: 1em;
+          height: 1em;
+          border-radius: 50%;
+          position: relative;
+          @include transform(translateZ(0));
+          @include animation(load6 1.7s infinite ease, round 1.7s infinite ease);
+        }
+      }
+    }
+  }
 }

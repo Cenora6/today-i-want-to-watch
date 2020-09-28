@@ -1,21 +1,8 @@
 .home {
   &__searchbox {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    min-height: 35rem;
-    border-radius: 2rem;
-    border: .3rem solid $main-color;
-    box-shadow: 10px 10px 12px -1px rgba(0,0,0,0.57);
-    background: $searchbox-background-color-1;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, $searchbox-background-color-2, $searchbox-background-color-1);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, $searchbox-background-color-2, $searchbox-background-color-1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    font-family: $main-font;
-    position: relative;
-
-    @include desktop {
-      width: 70%;
-      min-height: 45rem;
+    @include phone {
+      min-height: 35rem;
+      height: 35rem;
     }
 
     &__type, &__genres, &__keywords, &__submit {
@@ -90,6 +77,7 @@
 
     &__keywords {
       height: 20%;
+      color: black;
 
       &__input {
         width: 80%;
@@ -153,72 +141,7 @@
       }
     }
 
-    &__submit {
-      height: 5%;
 
-      &__button {
-        @include flex-center-row;
-        height: 15%;
-
-        button {
-          cursor: pointer;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          font-weight: 700;
-          outline: none;
-          position: relative;
-          @include transition(all 0.3s);
-          overflow: hidden;
-          background: transparent;
-          color: $main-color;
-          border: .2rem solid $main-color;
-          border-radius: 2rem;
-          margin: 0 1rem;
-          padding: .2rem 3rem;
-          font-size: .8rem;
-
-          &:after {
-            content: '';
-            position: absolute;
-            @include transition(all 0.3s);
-            width: 30%;
-            height: 200%;
-            background: rgba(255,255,255,0.1);
-            z-index: 1;
-            right: 0;
-            top: 0;
-            transform-origin: 0 0;
-            @include rotate(-20);
-          }
-
-          &:hover:after {
-            width: 40%;
-          }
-
-          i {
-            @include flex-center-row;
-            position: absolute;
-            height: 100%;
-            top: 0;
-            font-size: .8rem;
-            right: 1rem;
-            z-index: 2;
-          }
-
-          @include desktop {
-            font-size: 1rem;
-            padding: 1rem 6rem;
-
-
-            i {
-              font-size: 1.2rem;
-              right: 2rem;
-            }
-          }
-
-        }
-      }
-    }
 
     .title-box {
       @include flex-center-row;
@@ -233,7 +156,7 @@
 
       }
 
-      @include tablet-and-desktop {
+      @include desktop {
         width: 20%;
         h2 {
           letter-spacing: .2rem;

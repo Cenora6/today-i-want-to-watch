@@ -58,14 +58,14 @@ export function Searchbox (props: SearchboxProps) {
             </div>
             <div className='home__searchbox__keywords'>
                 <div className='home__searchbox__keywords__title title-box'>
-                    <h2>Keyword *</h2>
+                    <h2>Keyword</h2>
                 </div>
                 <div className='home__searchbox__keywords__input'>
                     <label htmlFor='keyword'>
                         <input type="text" id='keyword' name="keyword" value={keyword} onChange={changeKeywordInput}/>
                     </label>
                     {allKeywords &&
-                    <div className={`home__searchbox__keywords__input__results ${allKeywords.length > 0 ? "show" : "hide"}` }>
+                    <div className={`home__searchbox__keywords__input__results ${keyword && allKeywords.length > 0 ? "show" : "hide"}` }>
                         {keyword && allKeywords.map((keyword: SingleKeyword) => {
                             return (
                                 <span key={keyword.id} id={keyword.id} onClick={chooseKeyword}>{keyword.name}</span>

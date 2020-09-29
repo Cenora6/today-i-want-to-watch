@@ -10,7 +10,7 @@ This website uses [The Movie Database API](https://developers.themoviedb.org/) t
  
 ### Technologies and additional dependencies:
 
-| Technology and dependencies | Description |
+| Tool | Description |
 | --- | --- |
 | [React](https://www.npmjs.com/package/react/) | A JavaScript library for creating user interfaces. |
 | [React Router Dom](https://www.npmjs.com/package/react-router-dom/) | DOM bindings for React Router. |

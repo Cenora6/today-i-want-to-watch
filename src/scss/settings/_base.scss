@@ -22,6 +22,11 @@ body, #root {
     padding: 0;
   }
 
+  @include tablet-horizontal {
+    padding: 2rem 0;
+  }
+
+
   &__searchbox, &__result {
     display: flex;
     flex-direction: column;

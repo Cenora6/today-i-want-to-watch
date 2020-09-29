@@ -112,6 +112,11 @@ $desktop-width: 1025px;
     @content;
   }
 }
+@mixin tablet-horizontal {
+  @media (orientation: landscape) {
+    @content;
+  }
+}
 
 @mixin flex-center-row {
   display: flex;

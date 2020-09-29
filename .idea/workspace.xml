@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bdc95569-316a-4d80-842b-ac4c1ac732ad" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/components/_result.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/components/_result.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/utilities/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/utilities/_mixins.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +79,7 @@
       <workItem from="1600763105352" duration="21518000" />
       <workItem from="1600851267585" duration="12163000" />
       <workItem from="1600871287111" duration="16161000" />
-      <workItem from="1601030327793" duration="40756000" />
+      <workItem from="1601030327793" duration="41200000" />
     </task>
     <servers />
   </component>
@@ -134,10 +135,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="774" y="467" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1053@67.27.1853.1053" timestamp="1601372562051" />
-    <state x="657" y="253" key="run.anything.popup" timestamp="1601285515937">
+    <state x="657" y="253" key="run.anything.popup" timestamp="1601382837387">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1601285515937" />
+    <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1601382837387" />
     <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1601381826987">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

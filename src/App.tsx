@@ -7,14 +7,24 @@ function App() {
     const [height, setHeight] = useState<number>(0);
     const [width, setWidth] = useState<number>(0);
     const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
+    const [orientation, setOrientation] = useState<number>(window.screen.orientation.angle)
 
     useEffect(() => {
         const updateSize = () => {
             setScreenWidth(window.innerWidth);
         }
+        const updateOrientation = () => {
+            setOrientation(window.screen.orientation.angle);
+        }
+
         window.addEventListener('resize', updateSize);
+        window.addEventListener('orientationchange', updateOrientation);
         updateSize();
-        return () => window.removeEventListener('resize', updateSize);
+        updateOrientation();
+        return () => {
+            window.removeEventListener('resize', updateSize);
+            window.removeEventListener('orientationchange', updateOrientation);
+        };
     }, []);
 
     const updateWindowDimensions = (event: React.MouseEvent) => {
@@ -27,7 +37,7 @@ function App() {
     return (
         <div className="home" onMouseMove={updateWindowDimensions}>
             <Home/>
-            {(screenWidth > 1024) && <AnimatedTv width={width} height={height}/>}
+            {(screenWidth > 1024) && (orientation === 0) && <AnimatedTv width={width} height={height}/>}
         </div>
     );
 }

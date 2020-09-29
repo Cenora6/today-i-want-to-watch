@@ -88,7 +88,6 @@ export function getDetails(setRandom: Function, type: string, id: string, setLoa
             setTimeout( () => {
                 setLoading(false)
             }, 500)
-            console.log(response.data)
         })
         .catch(err => {
             console.log(err);

@@ -36,7 +36,7 @@ export function Result(props: ResultProps) {
                     :
                     random ?
                         <>
-                            {console.log(imageStatus)}
+                            <span></span>
                             <div className={`home__result__details__photo ${imageStatus === "loaded" ? 'show' : 'hide'}`}>
                                 <img alt='poster'
                                      src={random.poster_path ? `//image.tmdb.org/t/p/w300_and_h450_bestv2${random.poster_path}` : poster}

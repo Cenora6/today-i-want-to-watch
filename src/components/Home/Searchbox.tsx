@@ -40,6 +40,7 @@ export function Searchbox (props: SearchboxProps) {
                     </div>
                 </div>
             </div>
+            <span className={`home__searchbox__info ${type ? 'show' : 'hide'}`}>Choose genre or keyword</span>
             <div className='home__searchbox__genres'>
                 <div className='home__searchbox__genres__title title-box'>
                     <h2>Genre</h2>

@@ -57,6 +57,22 @@
       height: 5%;
     }
 
+    &__info {
+      text-align: center;
+      font-size: .6rem;
+      text-transform: uppercase;
+      letter-spacing: .4rem;
+      @include transition(.3s);
+
+      &.show {
+        opacity: 1;
+      }
+
+      &.hide {
+        opacity: 0;
+      }
+    }
+
     &__genres {
       height: 70%;
 

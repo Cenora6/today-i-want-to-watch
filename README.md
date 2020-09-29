@@ -10,13 +10,13 @@ This website uses [The Movie Database API](https://developers.themoviedb.org/) t
 
 
 ## Live Demo
-[Today I Want To Watch (live preview)](https://cenora6.github.io/today-i-want-to-watch/).
+[Today I Want To Watch (live preview)](https://cenora6.github.io/today-i-want-to-watch/)
 
  
 ## Technologies and additional dependencies:
 
 | Tool | Description |
-| --- | --- |
+| :-------------:|--------------|
 | [React](https://www.npmjs.com/package/react/) | A JavaScript library for creating user interfaces. |
 | [React Router Dom](https://www.npmjs.com/package/react-router-dom/) | DOM bindings for React Router. |
 | [SASS](https://www.npmjs.com/package/sass/) | A preprocessor scripting language that is interpreted or compiled into CSS.  |
@@ -25,6 +25,7 @@ This website uses [The Movie Database API](https://developers.themoviedb.org/) t
 | [Axios](https://www.npmjs.com/package/axios/) | Promise based HTTP client for the browser and node.js |
 
 ## Installation:
+[node.js](http://nodejs.org/download/) is required to use ``npm``.
 
 -  ```git clone https://github.com/Cenora6/today-i-want-to-watch.git``` to clone the repository
 - ```npm install``` to install all dependencies

@@ -21,6 +21,7 @@ function App() {
         window.addEventListener('orientationchange', updateOrientation);
         updateSize();
         updateOrientation();
+
         return () => {
             window.removeEventListener('resize', updateSize);
             window.removeEventListener('orientationchange', updateOrientation);
@@ -34,10 +35,11 @@ function App() {
         setWidth(newWidth);
     };
 
+    {console.log(orientation)}
     return (
         <div className="home" onMouseMove={updateWindowDimensions}>
             <Home/>
-            {(screenWidth > 1024) && (orientation === 0) && <AnimatedTv width={width} height={height}/>}
+            {(screenWidth > 1500) && (orientation === 90) && <AnimatedTv width={width} height={height}/>}
         </div>
     );
 }

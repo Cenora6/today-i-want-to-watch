@@ -112,6 +112,13 @@ $desktop-width: 1025px;
     @content;
   }
 }
+
+@mixin small-desktop {
+  @media (max-width: 1500px) {
+    @content;
+  }
+}
+
 @mixin tablet-horizontal {
   @media (orientation: landscape) and (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
     @content;

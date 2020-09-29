@@ -4,8 +4,12 @@ function Copyright() {
 
     return (
         <div className='copyright'>
-            <span>Designed & developed by</span>
-            <span> Aleksandra Gasidlo | Cenora6</span>
+            <p>
+                <a  target='_blank' rel="noreferrer noopener" href='https://github.com/Cenora6'>
+                    Designed & developed by <br/>
+                    Aleksandra Gasidlo | Cenora6
+                </a>
+            </p>
         </div>
     )
 }

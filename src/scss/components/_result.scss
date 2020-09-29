@@ -165,7 +165,6 @@
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
-
           @include desktop {
             justify-content: flex-start;
             width: 80%;
@@ -178,6 +177,10 @@
           }
 
           @include tablet-horizontal {
+            width: 100%;
+          }
+
+          @include small-desktop {
             width: 100%;
           }
 

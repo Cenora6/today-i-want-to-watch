@@ -87,7 +87,14 @@ export function Result(props: ResultProps) {
                                 </div>
 
                                 <div className='home__result__details__info__description'>
-                                    <p>{random.overview && random.overview.length > 600 ? random.overview.substring(0, 1000) + "..." : random.overview}</p>
+                                    {random.overview && random.overview.length > 500 ?
+                                        <p>
+                                            {random.overview.substring(0, 500) + '... '}
+                                            <a href={`https://www.themoviedb.org/${type}/${random.id}`}> Read more here </a>
+                                        </p>
+                                        :
+                                        <p>{random.overview}</p>
+                                    }
                                 </div>
 
                                 <div className='home__result__details__info__cast'>

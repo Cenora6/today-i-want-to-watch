@@ -6,6 +6,7 @@ import {SingleKeyword} from "../../model/keywords.model";
 import {SingleGenre} from "../../model/genres.model";
 import {MovieOrShowDetails} from "../../model/details.model";
 import {MovieOrShowCast} from "../../model/cast.model";
+import Copyright from "./Copyright";
 
 function Home() {
 
@@ -143,13 +144,12 @@ function Home() {
             </>
             }
             {activePage === 2 &&
-            // <div className='home__searchbox'>
-                <Result random={random} backToSearch={backToSearch} imageStatus={imageStatus}
-                        handleImageLoaded={handleImageLoaded} type={type} randomGenre={randomGenre}
-                        randomCast={randomCast} anotherSearch={anotherSearch} loading={loading}
-                        totalResults={totalResults}/>
-            // </div>
+            <Result random={random} backToSearch={backToSearch} imageStatus={imageStatus}
+                    handleImageLoaded={handleImageLoaded} type={type} randomGenre={randomGenre}
+                    randomCast={randomCast} anotherSearch={anotherSearch} loading={loading}
+                    totalResults={totalResults}/>
             }
+            <Copyright/>
         </>
     );
 }

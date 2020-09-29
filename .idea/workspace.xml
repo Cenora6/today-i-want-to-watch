@@ -2,15 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdc95569-316a-4d80-842b-ac4c1ac732ad" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Home/Copyright.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scss/components/_copyright.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/Themoviedb.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Themoviedb.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Home.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Home/Result.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Result.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/Searchbox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Searchbox.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scss/components/_home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/components/_home.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scss/components/_loading.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/components/_loading.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scss/components/_result.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/components/_result.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scss/components/_searchbox.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/components/_searchbox.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/main.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scss/settings/_base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/settings/_base.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/utilities/_animations.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/utilities/_animations.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,9 +22,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="tsconfig.json" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -85,7 +87,7 @@
       <workItem from="1600763105352" duration="21518000" />
       <workItem from="1600851267585" duration="12163000" />
       <workItem from="1600871287111" duration="16161000" />
-      <workItem from="1601030327793" duration="29143000" />
+      <workItem from="1601030327793" duration="35923000" />
     </task>
     <servers />
   </component>
@@ -137,6 +139,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state width="498" height="446" key="SwitcherDM/67.27.1853.1053@67.27.1853.1053" timestamp="1601292000288" />
+    <state x="774" y="467" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601372562051">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="774" y="467" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1053@67.27.1853.1053" timestamp="1601372562051" />
     <state x="657" y="253" key="run.anything.popup" timestamp="1601285515937">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

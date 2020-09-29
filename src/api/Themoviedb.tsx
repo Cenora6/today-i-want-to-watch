@@ -49,9 +49,6 @@ export function searchForRandom(setRandom: Function, search: SearchModel, setAct
             setTotalResultPages(response.data.total_pages);
             setTotalResult(response.data.total_results);
 
-            console.log("total pages", response.data.total_pages);
-            console.log("total results", response.data.total_results);
-
             if(response.data.results.length !== 0) {
                 let randomNumber = Math.floor(Math.random() * (response.data.results.length));
 
@@ -59,7 +56,6 @@ export function searchForRandom(setRandom: Function, search: SearchModel, setAct
                 getCast(setRandomCast, search.type, response.data.results[randomNumber].id);
                 setActivePage(2);
 
-                // change the numbers of genre id from result to names
                 const genresId = response.data.results[randomNumber].genre_ids;
                 genresId.forEach( (genreId: string) => {
                     allGenres.forEach( (genre: SingleGenre) => {

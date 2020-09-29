@@ -1,11 +1,6 @@
 .home {
   &__result {
     flex-direction: column-reverse;
-    min-height: 45rem;
-
-    //height: calc(100% - 4rem);
-    //margin: 2rem;
-    //@include flex-center-column;
 
     @include desktop {
       flex-direction: column;
@@ -24,6 +19,7 @@
 
         @include flex-center-row;
         justify-content: space-evenly;
+        align-items: flex-start;
       }
 
       @include tablet {
@@ -196,12 +192,20 @@
               object-fit: cover;
               border-top-right-radius: 1rem;
               border-top-left-radius: 1rem;
+
+              @include tablet {
+                height: 60%;
+              }
             }
 
             &__text {
               display: flex;
               justify-content: center;
               height: 30%;
+
+              @include tablet {
+                height: 40%;
+              }
 
               p {
                 width: 100%;
@@ -221,7 +225,17 @@
         }
       }
       &__error {
+        //@include transition(.6s forward);
         @include flex-center-column;
+
+        &.show {
+          @include animation(slide-top .5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both);
+          //opacity: 1;
+        }
+
+        &.hide {
+          @include animation(slide-bottom .5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both);
+        }
 
         img {
           margin: 2rem 0;

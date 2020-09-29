@@ -87,11 +87,11 @@ export function Result(props: ResultProps) {
                                 </div>
 
                                 <div className='home__result__details__info__description'>
-                                    <p>{random.overview && random.overview.length > 1000 ? random.overview.substring(0, 1000) + "..." : random.overview}</p>
+                                    <p>{random.overview && random.overview.length > 600 ? random.overview.substring(0, 1000) + "..." : random.overview}</p>
                                 </div>
 
                                 <div className='home__result__details__info__cast'>
-                                    {randomCast &&
+                                    {randomCast && randomCast.cast &&
                                     randomCast.cast.slice(0, 5).map( (cast: SingleCast, index: number) => {
                                         return (
                                             <div className={'home__result__details__info__cast__single'} key={index}>
@@ -109,7 +109,7 @@ export function Result(props: ResultProps) {
                             </div>
                         </>
                         :
-                        <div className="home__result__details__error">
+                        <div className="home__result__details__error show">
                             <h2>No results...</h2>
                             <img src={sad} alt='sad'/>
                         </div>

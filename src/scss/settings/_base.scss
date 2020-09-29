@@ -1,20 +1,9 @@
 body, #root {
   position: relative;
   min-height: 100vh;
-  //height: 100vh;
   width: 100vw;
   margin: 0;
   padding: 0;
-  //min-width: 100%;
-  //max-width: 100%;
-
-  //@include desktop {
-  //  height: 100vh;
-  //}
-}
-
-#root {
-  //height: 100vh;
 }
 
 .home {
@@ -27,6 +16,7 @@ body, #root {
   background: -webkit-linear-gradient(to top, $gradient-body-color-2, $gradient-body-color-1);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to top, $gradient-body-color-2, $gradient-body-color-1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   padding: 2rem 0;
+  overflow: hidden;
 
   @include tablet-and-desktop {
     padding: 0;
@@ -35,7 +25,7 @@ body, #root {
   &__searchbox, &__result {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 90%;
     border-radius: 2rem;
     border: .3rem solid $main-color;
     box-shadow: 10px 10px 12px -1px rgba(0,0,0,0.57);
@@ -129,7 +119,6 @@ body, #root {
           @include desktop {
             font-size: 1rem;
             padding: 1rem 6rem;
-
 
             i {
               font-size: 1.2rem;

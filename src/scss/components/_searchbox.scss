@@ -105,7 +105,7 @@
           height: 0;
           overflow: hidden;
           font-size: .6rem;
-          @include transition(height .5s ease-in-out);
+          padding: 0.6rem;
 
           @include desktop {
             width: 50%;
@@ -113,35 +113,36 @@
           }
 
           &.show {
+            @include animation(slide-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both);
             height: auto;
-            padding: .5rem;
           }
 
           &.hide {
-            height: 0;
+            @include animation(slide-bottom .5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both);
+            height: auto;
           }
 
           span {
-            font-size: .6rem;
+            text-align: center;
+            font-size: .4rem;
             position: relative;
             padding: .2rem 0;
             cursor: pointer;
             width: 25%;
             z-index: 10;
+            text-transform: uppercase;
 
             &:hover {
               color: $searchbox-background-color-1;
             }
 
             @include desktop {
-              font-size: .8rem;
+              font-size: .6rem;
             }
           }
         }
       }
     }
-
-
 
     .title-box {
       @include flex-center-row;
@@ -153,7 +154,6 @@
         color: $main-color;
         font-size: .7rem;
         letter-spacing: .1rem;
-
       }
 
       @include desktop {

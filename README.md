@@ -8,17 +8,16 @@
 This website uses [The Movie Database API](https://developers.themoviedb.org/) to display the movie/tv show data. It's possible to view this website on mobile phones, tablets, laptops or desktops (RWD).
 
  
-### Technologies:
-- HTML5
-- SASS
-- React
-- TypeScript
+### Technologies and additional dependencies:
 
-### Additional dependencies: 
-- [Node Sass](https://www.npmjs.com/package/node-sass/)
-- [React Router Dom](https://www.npmjs.com/package/react-router-dom/)
-- [Axios](https://www.npmjs.com/package/axios/)
-- [Typescript](https://www.npmjs.com/package/typescript/)
+| Technology and dependencies | Description |
+| --- | --- |
+| [React](https://www.npmjs.com/package/react/ | A JavaScript library for creating user interfaces. |
+| [React Router Dom](https://www.npmjs.com/package/react-router-dom/) | DOM bindings for React Router. |
+| [SASS](https://www.npmjs.com/package/sass/) | A preprocessor scripting language that is interpreted or compiled into CSS.  |
+| [Typescript](https://www.npmjs.com/package/typescript/) | An open-source language which builds on JavaScript, |
+| [Node Sass](https://www.npmjs.com/package/node-sass/) | A library that provides binding for Node.js to LibSass, the C version of the popular stylesheet preprocessor, Sass. |
+| [Axios](https://www.npmjs.com/package/axios/) | Promise based HTTP client for the browser and node.js |
 
 ### Installation:
 

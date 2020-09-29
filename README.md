@@ -1,5 +1,7 @@
 # Today I Want To Watch
 
+![](src/assets/preview/preview.png)
+
 ### Description
 "Today I Want To Watch" is a website which was created for those who have a hard time finding the perfect movie or tv series to watch. By choosing the movie's or tv show's genre or keyword, the website chooses a random movie/tv show and shows its details (like poster, cast, description, genres, release year or seasons, links to imdb and The Movie Database) which help you make the decision what to watch. You can eaither try to find another movie or change the searching options and try again!
 

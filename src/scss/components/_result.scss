@@ -32,14 +32,10 @@
         @include transition(.6s);
 
         &.show {
-          //opacity: 0;
-          //@include animation(fadeIn .6s ease-in forwards);
           opacity: 1;
         }
 
         &.hide {
-          //opacity: 1;
-          //@include animation(fadeOut .6s ease-out forwards);
           opacity: 0;
         }
       }
@@ -182,10 +178,6 @@
               margin: 0 .5rem;
             }
 
-            //@include tablet {
-            //  width: calc(30% - 1rem);
-            //}
-
             img {
               width: 100%;
               height: 70%;
@@ -225,7 +217,6 @@
         }
       }
       &__error {
-        //@include transition(.6s forward);
         @include flex-center-column;
 
         &.show {

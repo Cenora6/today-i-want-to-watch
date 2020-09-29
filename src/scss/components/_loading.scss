@@ -1,9 +1,6 @@
 .home {
-
   &__result {
-
     &__details {
-
       &__loading {
         @include flex-center-column;
         min-height: 45rem;

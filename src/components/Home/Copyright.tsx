@@ -1,13 +1,11 @@
 import React from 'react';
-import Home from "./Home";
 
 function Copyright() {
-
 
     return (
         <div className='copyright'>
             <span>Designed & developed by</span>
-            <span> Aleksandra Gasidlo | Cenora06</span>
+            <span> Aleksandra Gasidlo | Cenora6</span>
         </div>
     )
 }

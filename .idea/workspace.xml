@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdc95569-316a-4d80-842b-ac4c1ac732ad" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Home/Copyright.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scss/components/_copyright.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/Themoviedb.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Themoviedb.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/Result.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Result.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scss/components/_result.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/components/_result.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scss/components/_searchbox.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/components/_searchbox.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scss/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scss/settings/_base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/settings/_base.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scss/utilities/_animations.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/utilities/_animations.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/Copyright.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Copyright.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +78,7 @@
       <workItem from="1600763105352" duration="21518000" />
       <workItem from="1600851267585" duration="12163000" />
       <workItem from="1600871287111" duration="16161000" />
-      <workItem from="1601030327793" duration="35923000" />
+      <workItem from="1601030327793" duration="36730000" />
     </task>
     <servers />
   </component>

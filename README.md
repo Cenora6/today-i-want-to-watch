@@ -12,7 +12,7 @@ This website uses [The Movie Database API](https://developers.themoviedb.org/) t
 
 | Technology and dependencies | Description |
 | --- | --- |
-| [React](https://www.npmjs.com/package/react/ | A JavaScript library for creating user interfaces. |
+| [React](https://www.npmjs.com/package/react/) | A JavaScript library for creating user interfaces. |
 | [React Router Dom](https://www.npmjs.com/package/react-router-dom/) | DOM bindings for React Router. |
 | [SASS](https://www.npmjs.com/package/sass/) | A preprocessor scripting language that is interpreted or compiled into CSS.  |
 | [Typescript](https://www.npmjs.com/package/typescript/) | An open-source language which builds on JavaScript, |
